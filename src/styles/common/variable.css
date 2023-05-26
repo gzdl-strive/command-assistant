@@ -1,0 +1,28 @@
+:root {
+  /* Basic Text Color(基本色号定义) */
+  --color-blue: #228cf6;
+  --color-green: #67c23a;
+  --color-orange: #f2960d;
+  --color-red: #f52323;
+  --color-purple: #6a58d8;
+  --color-light: #ffffff;
+  --color-dark: #191627;
+  --color-deepDark: #100e1b;
+  --color-lightGray: #a19fac;
+  --color-gray: #707070;
+  --color-deepGray: #4e4d4d;
+
+  /* basic hover color(基本悬浮色) */
+  --link-color: var(--color-blue);
+
+  /* theme color(页面主题色) */
+  --theme-color: var(--color-purple);
+
+  /* theme bgColor/text Color */
+  --theme-bgColor: var(--color-light);
+  --theme-textColor: var(--color-dark);
+
+  /* header/nav(头部/导航变量) */
+  --header-height: 6rem;
+  --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);
+}
