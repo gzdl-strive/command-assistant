@@ -13,7 +13,8 @@ export default defineConfig({
     alias: {
       "@c": path.resolve(__dirname, "./src/components"),
       "@s": path.resolve(__dirname, "./src/styles"),
-      "@u": path.resolve(__dirname, "./src/utils")
+      "@u": path.resolve(__dirname, "./src/utils"),
+      "@cfg": path.resolve(__dirname, "./src/config")
     }
   }
 });

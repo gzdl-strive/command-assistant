@@ -1,3 +1,7 @@
-@import url("@s/common/variable.css");
-@import url("@s/common/reset.css");
-@import url("@s/common/public.css");
+@import url("@s/common/variable.css"); /* import varible style(自定义变量样式文件) */
+@import url("@s/common/reset.css"); /* import reset style(重置默认样式) */
+@import url("@s/common/public.css"); /* imort public style(公共样式) */
+
+.header {
+  padding: var(--layout-padding);
+}

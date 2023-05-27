@@ -22,6 +22,16 @@
   --theme-bgColor: var(--color-light);
   --theme-textColor: var(--color-dark);
 
+  /* layout padding(header, footer) */
+  --layout-padding: 0 1.6rem;
+
+  /* basic font-size lg大屏 md中屏 sm小屏 xs超小型 xxs超超小型 */
+  --fontSize-lg: 3.2rem;
+  --fontSize-md: 2.6rem;
+  --fontSize-sm: 2rem;
+  --fontSize-xs: 1.6rem;
+  --fontSize-xxs: 1.4rem;
+
   /* header/nav(头部/导航变量) */
   --header-height: 6rem;
   --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);

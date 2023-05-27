@@ -1,6 +1,39 @@
+/* test(测试样式) */
+.test {
+  background-color: aqua;
+}
+
 /* container(容器) */
 .container {
   max-width: 76.8rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.flex.j_center {
+  justify-content: center;
+}
+
+.flex.j_between {
+  justify-content: space-between;
+}
+
+.flex.a_center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-col-1-5 {
+  gap: 1.5rem;
 }

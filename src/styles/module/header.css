@@ -4,5 +4,14 @@
   left: 0;
   height: var(--header-height);
   width: 100%;
-  box-shadow: var(--header-boxShadow);
+  /* box-shadow: var(--header-boxShadow); */
+}
+
+.nav {
+  height: 100%;
+}
+
+.nav__logo {
+  color: var(--theme-textColor);
+  font-size: var(--fontSize-sm);
 }

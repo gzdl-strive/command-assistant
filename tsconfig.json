@@ -23,7 +23,8 @@
     "paths": {
       "@c/*": ["src/components/*"],
       "@s/*": ["src/styles/*"],
-      "@u/*": ["src/utils/*"]
+      "@u/*": ["src/utils/*"],
+      "@cfg/*": ["src/config/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
