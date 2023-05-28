@@ -8,12 +8,15 @@
   --color-light: #ffffff;
   --color-dark: #191627;
   --color-deepDark: #100e1b;
-  --color-lightGray: #a19fac;
+  --color-lightGray: #cec8c8;
   --color-gray: #707070;
   --color-deepGray: #4e4d4d;
 
   /* basic hover color(基本悬浮色) */
   --link-color: var(--color-blue);
+
+  /* layout padding(布局padding) */
+  --layout-padding: 0 2rem;
 
   /* theme color(页面主题色) */
   --theme-color: var(--color-purple);
@@ -22,9 +25,6 @@
   --theme-bgColor: var(--color-light);
   --theme-textColor: var(--color-dark);
 
-  /* layout padding(header, footer) */
-  --layout-padding: 0 1.6rem;
-
   /* basic font-size lg大屏 md中屏 sm小屏 xs超小型 xxs超超小型 */
   --fontSize-lg: 3.2rem;
   --fontSize-md: 2.6rem;
@@ -32,7 +32,15 @@
   --fontSize-xs: 1.6rem;
   --fontSize-xxs: 1.4rem;
 
+  /* basic icon-size */
+  --iconSize-large: 10rem;
+  --iconSize-middle: 4rem;
+  --iconSize-small: 3rem;
+
   /* header/nav(头部/导航变量) */
-  --header-height: 6rem;
+  --header-height: 18rem;
+  --header-nav-height: 6rem;
+  --header-textColor: var(--color-light);
+  --header-subtitle-textColor: var(--color-lightGray);
   --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);
 }

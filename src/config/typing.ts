@@ -1,5 +1,9 @@
 interface GlobalConfig {
-  title: string;
+  header: {
+    title: string;
+    subtitle: string;
+    scrollCritical?: number;
+  }
 }
 
 export type {
