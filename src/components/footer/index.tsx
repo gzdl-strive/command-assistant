@@ -1,6 +1,8 @@
+import "./style.css";
+
 function Footer() {
   return (
-    <footer>页脚</footer>
+    <footer className="footer">页脚</footer>
   );
 }
 

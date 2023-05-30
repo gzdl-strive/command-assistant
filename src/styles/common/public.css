@@ -30,6 +30,10 @@
   align-items: center;
 }
 
+.flex.a_end {
+  align-items: flex-end;
+}
+
 .grid {
   display: grid;
 }

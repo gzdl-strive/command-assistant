@@ -4,6 +4,7 @@ interface ModePanelMap {
   name: string;
   describe: string;
   type: ModelPanleType;
+  icon?: string;
 }
 
 interface GlobalConfig {

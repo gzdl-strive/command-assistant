@@ -1,5 +1,4 @@
 .content {
-  height: 1000px;
   background-color: var(--theme-bgColor);
 }
 
@@ -7,6 +6,19 @@
   padding: 9.6rem 0 5.2rem;
 }
 
-.mode {
+.section__title {
+  text-align: center;
+  color: var(--theme-textColor);
+  font-size: var(--fontSize-md);
+}
+
+.section__subtitle {
+  text-align: center;
+  margin: var(--mg-1) 0 var(--mg-6);
+  color: var(--theme-subtitle-textColor);
+  font-size: var(--fontSize-xs);
+}
+
+.mode__content {
   grid-template-columns: repeat(2, 1fr);
 }

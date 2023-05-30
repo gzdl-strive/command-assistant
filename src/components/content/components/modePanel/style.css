@@ -1,25 +1,51 @@
+/* panel style */
 .panel {
   background-color: var(--color-dark);
   padding: var(--pd-2);
   border-radius: 1rem;
+  cursor: pointer;
+  transition: all .2s ease-out;
 }
 
 .panel__title {
   color: var(--color-light);
   font-size: var(--fontSize-sm);
+  transition: color .2s linear;
 }
 
 .panel__subtitle {
   font-size: var(--fontSize-xxs);
   color: var(--color-gray);
-  margin: var(--mg-1) 0;
+  margin: var(--mg-1) 0 var(--mg-2);
 }
 
 .panel__icon {
   font-size: var(--iconSize-middle);
+  transition: transform 0.3s ease-out;
 }
 
 .panel__type {
   text-align: right;
   color: var(--color-light);
+  transition: color 0.2s linear;
+}
+
+.panel:nth-child(odd):hover {
+  transform: rotateY(-5deg) rotateZ(-1deg) rotateX(-5deg);
+  box-shadow: 2px 2px 5px rgba(0 0 0 / 80%); 
+}
+
+.panel:nth-child(even):hover {
+  transform: rotateX(5deg) rotateY(5deg) rotateZ(1deg);
+  box-shadow: 2px 2px 5px rgba(0 0 0 / 80%);
+}
+
+.panel:hover .panel__title,
+.panel:hover .panel__type {
+  color: var(--link-color);
+  transform: translateZ(1rem);
+}
+
+.panel:hover .panel__icon {
+  transform: scale(1.05);
 }

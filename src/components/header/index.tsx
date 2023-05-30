@@ -43,8 +43,12 @@ function Header() {
           <span className="nav__title">{title}</span>
         </a> 
         <div className="flex gap-col-1-5">
-          <i className="iconfont icon-dark-mode nav__icon" title="dark mode"></i>
-          <i className="iconfont icon-search nav__icon" title="search"></i>
+          <svg className='icon nav__icon' aria-hidden="true">
+            <use xlinkHref='#icon-dark-mode'></use>
+          </svg>
+          <svg className='icon nav__icon' aria-hidden="true">
+            <use xlinkHref='#icon-search'></use>
+          </svg>
         </div>
       </nav>
     </header>

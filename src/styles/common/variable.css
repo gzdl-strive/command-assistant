@@ -24,6 +24,7 @@
   /* theme bgColor/text Color */
   --theme-bgColor: var(--color-light);
   --theme-textColor: var(--color-dark);
+  --theme-subtitle-textColor: var(--color-gray);
 
   /* basic font-size lg大屏 md中屏 sm小屏 xs超小型 xxs超超小型 */
   --fontSize-lg: 3.2rem;
@@ -43,6 +44,9 @@
   --mg-3: 3rem;
   --mg-4: 4rem;
   --mg-5: 5rem;
+  --mg-6: 6rem;
+  --mg-7: 7rem;
+  --mg-8: 8rem;
 
   /* basic margin */
   --pd-1: 1rem;
