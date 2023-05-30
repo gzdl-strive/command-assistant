@@ -42,10 +42,20 @@
   column-gap: 1.5rem;
 }
 
+.gap-col-3 {
+  column-gap: 3rem;
+}
+
 .gap-row-1 {
   row-gap: 1rem;
 }
 
-.gap-col-3 {
-  column-gap: 3rem;
+.gap-row-3 {
+  row-gap: 3rem;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

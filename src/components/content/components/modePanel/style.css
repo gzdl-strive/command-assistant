@@ -1,0 +1,25 @@
+.panel {
+  background-color: var(--color-dark);
+  padding: var(--pd-2);
+  border-radius: 1rem;
+}
+
+.panel__title {
+  color: var(--color-light);
+  font-size: var(--fontSize-sm);
+}
+
+.panel__subtitle {
+  font-size: var(--fontSize-xxs);
+  color: var(--color-gray);
+  margin: var(--mg-1) 0;
+}
+
+.panel__icon {
+  font-size: var(--iconSize-middle);
+}
+
+.panel__type {
+  text-align: right;
+  color: var(--color-light);
+}

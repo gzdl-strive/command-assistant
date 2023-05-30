@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import globalConfig from "@cfg/global";
-import "@s/module/header.css";
+import "./style.css";
 
 const { header: { title, subtitle, scrollCritical } } = globalConfig;
 
