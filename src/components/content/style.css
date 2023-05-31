@@ -4,16 +4,33 @@
 
 .section {
   padding: 9.6rem 0 5.2rem;
+  text-align: left;
+}
+
+.section:nth-child(3n + 2) {
+  text-align: center;
+}
+
+.section:nth-child(3n + 3) {
+  text-align: right;
 }
 
 .section__title {
-  text-align: center;
   color: var(--theme-textColor);
   font-size: var(--fontSize-md);
 }
 
+.section:nth-child(3n + 1) .section__title {
+  border-left: 0.3rem solid var(--theme-color);
+  padding-left: var(--pd-2);
+}
+
+.section:nth-child(3n + 3) .section__title {
+  border-right: 0.3rem solid var(--theme-color);
+  padding-right: var(--pd-2);
+}
+
 .section__subtitle {
-  text-align: center;
   margin: var(--mg-1) 0 var(--mg-6);
   color: var(--theme-subtitle-textColor);
   font-size: var(--fontSize-xs);

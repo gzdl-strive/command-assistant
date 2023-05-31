@@ -7,7 +7,7 @@ const { content: { modePanelList } } = globalConfig;
 // 为避免和主入口文件产生歧义，更名为Content
 function Content() {
   return (
-    <main className="content">
+    <main className="content container">
       <section className="section mode">
         <h2 className="section__title">模式面板</h2>
         <h3 className="section__subtitle">各种不同模式</h3>
