@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import SvgIcon from "@c/svg-icon";
 import globalConfig from "@cfg/global";
-import "./style.css";
+import module from "./style.module.css";
 
 const { header: { title, subtitle, scrollCritical } } = globalConfig;
 
@@ -27,28 +28,24 @@ function Header() {
   }, [scrollHeader]);
 
   return (
-    <header className={`header ${scrollHeader}`}>
-      <div className="header__bg flex a_center gap-col-3 j_center">
+    <header className={`${module.header} ${module[scrollHeader]}`}>
+      <div className={`${module.header__bg} flex a_center gap-col-3 j_center`}>
         <a href="#" title={title}>
-          <img src="/vite.svg" className="header__logo" alt="header big logo" />
+          <img src="/vite.svg" className={module.header__logo} alt="header big logo" />
         </a>
-        <div className="header__content flex column gap-row-1">
-          <h1 className="header__title">{ title }</h1>
-          <p className="header__subtitle">{ subtitle }</p>
+        <div className={`${module.header__content} flex column gap-row-1`}>
+          <h1 className={module.header__title}>{ title }</h1>
+          <p className={module.header__subtitle}>{ subtitle }</p>
         </div>
       </div>
-      <nav className="nav flex j_between a_center">
+      <nav className={`${module.nav} flex j_between a_center`}>
         <a className="flex a_center gap-col-1" href="#" title={title}>
-          <img src="/vite.svg" className="nav__logo" alt="nav logo" />
-          <span className="nav__title">{title}</span>
+          <img src="/vite.svg" className={module.nav__logo} alt="nav logo" />
+          <span className={module.nav__title}>{title}</span>
         </a> 
         <div className="flex gap-col-1-5">
-          <svg className='icon nav__icon' aria-hidden="true">
-            <use xlinkHref='#icon-dark-mode'></use>
-          </svg>
-          <svg className='icon nav__icon' aria-hidden="true">
-            <use xlinkHref='#icon-search'></use>
-          </svg>
+          <SvgIcon name="dark-mode" className={module.nav__icon}></SvgIcon>
+          <SvgIcon name="search" className={module.nav__icon}></SvgIcon>
         </div>
       </nav>
     </header>

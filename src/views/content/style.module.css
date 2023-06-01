@@ -1,4 +1,5 @@
 .content {
+  padding: var(--layout-padding);
   background-color: var(--theme-bgColor);
 }
 
@@ -36,6 +37,12 @@
   font-size: var(--fontSize-xs);
 }
 
+/* mode panel style */
 .mode__content {
   grid-template-columns: repeat(2, 1fr);
+}
+
+/* common panel style */
+.common__content {
+  grid-template-columns: repeat(3, 1fr);
 }

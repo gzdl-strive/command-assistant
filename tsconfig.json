@@ -25,6 +25,8 @@
       "@s/*": ["src/styles/*"],
       "@u/*": ["src/utils/*"],
       "@cfg/*": ["src/config/*"],
+      "@l/*": ["src/layout/*"],
+      "@v/*": ["src/views/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],

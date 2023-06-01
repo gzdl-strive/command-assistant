@@ -1,14 +1,25 @@
 import { Fragment } from "react";
-import Header from "@c/header";
-import Content from "@c/content";
-import Footer from "@c/footer";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Header from "@l/header";
+import Content from "@v/content";
+import Footer from "@l/footer";
 import "./App.css";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Content />
+  }
+]);
+
+console.log('aaa');
+
 
 function App() {
   return (
     <Fragment>
       <Header />
-      <Content />
+      <RouterProvider router={router} />
       <Footer />
     </ Fragment>
   );
