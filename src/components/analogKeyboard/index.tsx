@@ -8,8 +8,8 @@ function AnalogKeyboard(props: AnalogType) {
   const { name } = props;
 
   return (
-    <span className={module.wrapper}>
-      <i className={module.name}>{name}</i>
+    <span className={`${module.wrapper}`}>
+      <i className={`${module.name}`}>{name}</i>
     </span>
   );
 }

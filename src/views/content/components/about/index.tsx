@@ -4,9 +4,7 @@ import { AboutType } from "@cfg/typing";
 
 function About(props: AboutType) {
   const { introduction, experience, portfolio } = props;
-
-  console.log(introduction, experience, portfolio);
-  
+  // console.log(introduction, experience, portfolio);
   return (
     <div className={`${module.about__container}`}>
       <div className={`${module.about__box} ${module.horizontal}`}>
@@ -30,19 +28,11 @@ function About(props: AboutType) {
       </div>
       <div className={`${module.about__keyboard} grid`}>
         <span></span>
-        <div style={{ justifySelf: "center" }}>
-          <AnalogKeyboard name="↑" />
-        </div>
+        <AnalogKeyboard name="↑" />
         <span></span>
-        <div style={{ justifySelf: "center" }}>
-          <AnalogKeyboard name="←" />
-        </div>
-        <div style={{ justifySelf: "center" }}>
-          <AnalogKeyboard name="↓" />
-        </div>
-        <div style={{ justifySelf: "center" }}>
-          <AnalogKeyboard name="→" />
-        </div>
+        <AnalogKeyboard name="←" />
+        <AnalogKeyboard name="↓" />
+        <AnalogKeyboard name="→" />
       </div>
     </div>
   );
