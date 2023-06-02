@@ -35,7 +35,9 @@ function Content() {
       <section className={`${module.section} about`}>
         <h2 className={module.section__title}>关于我</h2>
         <h3 className={module.section__subtitle}>前端开发工程师</h3>
-        <About {...about} />
+        <div className={`${module.about__content} flex j_center`}>
+          <About {...about} />
+        </div>
       </section>
     </main>
   );

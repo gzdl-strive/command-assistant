@@ -50,8 +50,16 @@
   column-gap: 3rem;
 }
 
+.gap-row-0-5 {
+  row-gap: 0.5rem;
+}
+
 .gap-row-1 {
   row-gap: 1rem;
+}
+
+.gap-row-2 {
+  row-gap: 2rem;
 }
 
 .gap-row-3 {

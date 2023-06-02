@@ -46,3 +46,8 @@
 .common__content {
   grid-template-columns: repeat(3, 1fr);
 }
+
+/* about box style */
+.about__content {
+  transform: translateY(3rem);
+}

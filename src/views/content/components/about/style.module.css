@@ -1,0 +1,93 @@
+.about__container {
+  perspective: 80rem;
+  perspective-origin: 50% 15rem;
+}
+
+.about__box {
+  position: relative;
+  height: 40rem;
+  width: 30rem;
+  transform-style: preserve-3d;
+}
+
+/* 调整文字正向展示 */
+.vertical .about__top {
+	transform: rotateX(90deg) translateY(-15rem);
+}
+
+.vertical .about__back {
+	transform: translateZ(-15rem) rotateX(180deg);
+}
+
+.vertical .about__bottom {
+	transform: rotateX(-90deg) translateY(15rem);
+}
+
+.about__face {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  padding: var(--pd-2);
+  text-align: center;
+  background-color: var(--theme-textColor);
+  color: var(--theme-bgColor);
+  box-shadow: inset 0 0 5rem var(--theme-color);
+}
+
+.about__front {
+  transform: translateZ(15rem);
+}
+
+.about__back {
+  transform: rotateY(180deg) translateZ(15rem);
+}
+
+.about__right {
+  transform: rotateY(90deg) translateX(15rem);
+  transform-origin: right center;
+}
+
+.about__left {
+  transform: rotateY(-90deg) translateX(-15rem);
+  transform-origin: left center;
+}
+
+.about__top {
+  transform: rotateX(-90deg) translateY(-15rem);
+  transform-origin: center top;
+}
+
+.about__bottom {
+  transform: rotateX(90deg) translateY(15rem);
+  transform-origin: center bottom;
+}
+
+.front__title {
+  font-size: var(--fontSize-md);
+}
+
+.front__subtitle {
+  font-size: var(--fontSize-xxs);
+  color: var(--theme-subtitle-textColor);
+}
+
+/* front about__journey */
+.front__content {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.front__value {
+  font-size: var(--fontSize-xs);
+}
+
+.front__name {
+  color: var(--theme-subtitle-textColor);
+}
+
+/* keyboard style */
+.about__keyboard {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  grid-template-columns: repeat(3, 1fr);
+}
