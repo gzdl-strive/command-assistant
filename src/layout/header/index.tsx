@@ -29,11 +29,11 @@ function Header() {
 
   return (
     <header className={`${module.header} ${module[scrollHeader]}`}>
-      <div className={`${module.header__bg} flex a_center gap-col-3 j_center`}>
+      <div className={`${module.header__bg} flex a_center j_center`}>
         <a href="#" title={title}>
           <img src="/vite.svg" className={module.header__logo} alt="header big logo" />
         </a>
-        <div className={`${module.header__content} flex column gap-row-1`}>
+        <div className={`flex column gap-row-1`}>
           <h1 className={module.header__title}>{ title }</h1>
           <p className={module.header__subtitle}>{ subtitle }</p>
         </div>

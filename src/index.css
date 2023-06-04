@@ -9,3 +9,39 @@
   fill: currentColor;
   overflow: hidden;
 }
+
+/* sm */
+@media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 567px) {
+  :root {
+    --header-logo-visible: none;
+    --header-nav-title-visible: none;
+
+    --content-mode-content: 1fr;
+
+    --footer-content: 1fr;
+    --footer-header-align: center;
+    --footer-recommend-align: center;
+  }
+}
+@media screen and (max-width: 430px) {
+  :root {
+    --content-common-content: repeat(2, 1fr);
+  }
+}
+
+/* xs */
+@media screen and (min-width: 768px) {
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+  :root {
+    --footer-content: repeat(3, 1fr);
+  }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+}

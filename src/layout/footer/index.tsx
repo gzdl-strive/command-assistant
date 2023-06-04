@@ -1,26 +1,54 @@
-import "./style.css";
+import module from "./style.module.css";
+import globalConfig from "@cfg/global";
+
+const { footer: { title, subtitle, social, recommend } } = globalConfig;
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer__content container">
-        <h2 className="footer__title">command-assistant</h2>
-        <h3 className="footer__subtitle">retrieval command</h3>
-        <div className="footer__mode">
-          <span>github</span>
-          <span>gitee</span>
-          <span>b站</span>
+    <footer className={module.footer}>
+      <div className={`${module.footer__content} container grid gap-row-3`}>
+        <div className={`${module.footer__header}`}>
+          <h2 className={module.footer__title}>{title}</h2>
+          <h3 className={module.footer__subtitle}>{subtitle}</h3>
         </div>
-        <div className="footer__recommend">
-          <span>gzdlprofile</span>
-          <span>vitv-admin</span>
-          <span>my-single-room</span>
+        <div className={`${module.footer__contact} flex gap-col-1`}>
+          {
+            social.length && social.map(item => (
+              <a 
+                key={item.name + item.url} 
+                href={item.url} 
+                className={module['footer__contact--item']}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+        <div className={`${module.footer__recommend} flex gap-col-1`}>
+          {
+            recommend.length && recommend.map(item => (
+              <a
+                key={item.name + item.url}
+                href={item.url}
+                className={`${module['footer__recommend--item']}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item.name}
+              </a>
+            ))
+          }
         </div>
       </div>
-      <div className="footer__describe">
-        <span>logo</span>
-        <p>some describe.....................</p>
-      </div>
+      <p className={`${module.footer__describe}`}>
+        All of this content are ©2023 by individual 
+        <a href="https://github.com/gzdl-strive" target="_blank" className={module['footer__descibe--author']} rel="noreferrer">
+          &nbsp;gzdl-strive&nbsp;
+        </a>
+        contributors.
+      </p>
     </footer>
   );
 }

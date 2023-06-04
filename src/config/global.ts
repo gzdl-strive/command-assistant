@@ -114,6 +114,34 @@ const globalConfig: GlobalConfig = {
         }
       ]
     }
+  },
+  footer: {
+    title: "command-assistant",
+    subtitle: "retrieval command",
+    social: [{ 
+      name: "github", 
+      url: "https://github.com/gzdl-strive" 
+    },
+    {
+      name: "gitee",
+      url: "https://gitee.com/gzdl-strive"
+    },
+    {
+      name: "juejing",
+      url: "https://juejing.com"
+    }],
+    recommend: [{
+      name: "gzdlprofile",
+      url: "http://124.222.103.60:8890"
+    },
+    {
+      name: "vitv-admin",
+      url: "http://124.222.103.60"
+    },
+    {
+      name: "my-single-room",
+      url: "http://124.222.103.60:8888"
+    }]
   }
 };
 

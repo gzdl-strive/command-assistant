@@ -1,0 +1,54 @@
+.footer {
+  background: var(--theme-textColor);
+  color: var(--theme-bgColor);
+  padding: var(--pd-6) var(--pd-3) var(--pd-8);
+}
+
+.footer__content {
+  grid-template-columns: var(--footer-content);
+  margin-bottom: var(--mg-5);
+}
+
+.footer__header {
+  text-align: var(--footer-header-align);
+}
+
+.footer__title {
+  font-size: var(--fontSize-sm);
+  text-transform: uppercase;
+}
+
+.footer__subtitle {
+  font-size: var(--fontSize-xs);
+  margin-top: var(--mg-1);
+}
+
+.footer__contact {
+  padding: 0 var(--pd-5);
+}
+
+.footer__contact--item {
+  flex: 1;
+  color: var(--theme-bgColor);
+  font-size: var(--fontSize-xs);
+  text-align: center;
+}
+
+.footer__recommend {
+  justify-content: var(--footer-recommend-align);
+}
+
+.footer__recommend--item {
+  font-size: var(--fontSize-xs);
+  color: var(--theme-bgColor);
+}
+
+.footer__describe {
+  text-align: center;
+  font-size: var(--fontSize-xxs);
+  color: var(--color-gray);
+}
+
+.footer__descibe--author {
+  color: var(--color-gray);
+}

@@ -32,6 +32,11 @@ interface AboutType {
   portfolio: PortfolioItem[];
 }
 
+interface FooterCommonType {
+  name: string;
+  url: string;
+}
+
 interface GlobalConfig {
   header: {
     title: string;
@@ -42,6 +47,12 @@ interface GlobalConfig {
     modePanelList: ModePanelMap[];
     commonPanelList: CommonPanelMap[];
     about: AboutType;
+  },
+  footer: {
+    title: string;
+    subtitle: string;
+    social: FooterCommonType[];
+    recommend: FooterCommonType[];
   }
 }
 

@@ -65,4 +65,15 @@
   --header-textColor: var(--color-light);
   --header-subtitle-textColor: var(--color-lightGray);
   --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);
+  --header-logo-visible: inline-block;
+  --header-nav-title-visible: inline;
+
+  /* content */
+  --content-mode-content: repeat(2, 1fr);
+  --content-common-content: repeat(3, 1fr);
+
+  /* footer */
+  --footer-content: repeat(2, 1fr);
+  --footer-header-align: left;
+  --footer-recommend-align: flex-start;
 }

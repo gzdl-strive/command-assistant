@@ -39,12 +39,12 @@
 
 /* mode panel style */
 .mode__content {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: var(--content-mode-content);
 }
 
 /* common panel style */
 .common__content {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: var(--content-common-content);
 }
 
 /* about box style */

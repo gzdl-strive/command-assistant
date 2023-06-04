@@ -12,6 +12,8 @@
 
 .header__logo {
   width: var(--iconSize-large);
+  display: var(--header-logo-visible);
+  margin-right: var(--mg-3);
 }
 
 .header__title {
@@ -45,6 +47,7 @@
   font-size: var(--fontSize-sm);
   text-transform: uppercase;
   color: var(--header-textColor);
+  display: var(--header-nav-title-visible);
 }
 
 .nav__icon {
