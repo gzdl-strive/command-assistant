@@ -3,6 +3,7 @@ type ModelPanleType = "Doc" | "Q&A" | "Game" | "GPT";
 interface ModePanelMap {
   name: string;
   describe: string;
+  routeName?: string;
   type: ModelPanleType;
   icon?: string;
 }

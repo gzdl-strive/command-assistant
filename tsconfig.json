@@ -26,7 +26,8 @@
       "@u/*": ["src/utils/*"],
       "@cfg/*": ["src/config/*"],
       "@l/*": ["src/layout/*"],
-      "@v/*": ["src/views/*"]
+      "@v/*": ["src/views/*"],
+      "@r/*": ["src/router/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],

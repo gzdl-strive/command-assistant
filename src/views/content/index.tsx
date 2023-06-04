@@ -1,13 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import ModelPanel from "@c/modePanel";
 import CommonPanel from "@c/commonPanel";
 import About from "./components/about";
 import globalConfig from "@cfg/global";
 import module from "./style.module.css";
+import { ModePanelMap } from "@cfg/typing";
 
 const { content: { modePanelList, commonPanelList, about } } = globalConfig;
 
 // 为避免和主入口文件产生歧义，更名为Content
 function Content() {
+  const navigate = useNavigate();
+
+  // 处理模式
+  const handleMode = (mode: ModePanelMap) => {
+    // navigate("/document");
+    navigate(mode.routeName || "/", {state: {value: 111 }});
+    // navigate("/document", { state: { value: 111 }});
+  };
+
   return (
     <main className={`${module.content} container`}>
       <section className={`${module.section} mode`}>
@@ -16,7 +27,11 @@ function Content() {
         <div className={`${module.mode__content} grid gap-col-3 gap-row-3`}>
           {
             modePanelList.length && modePanelList.map(mode => (
-              <ModelPanel key={mode.name + mode.type} {...mode} />
+              <ModelPanel
+                key={mode.name + mode.type}
+                {...mode}
+                onClick={() => handleMode(mode)}
+              />
             ))
           }
         </div>
