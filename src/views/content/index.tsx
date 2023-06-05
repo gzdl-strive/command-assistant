@@ -14,9 +14,11 @@ function Content() {
 
   // 处理模式
   const handleMode = (mode: ModePanelMap) => {
-    // navigate("/document");
-    navigate(mode.routeName || "/", {state: {value: 111 }});
-    // navigate("/document", { state: { value: 111 }});
+    navigate(mode.routeName || "/", { 
+      state: { 
+        value: mode 
+      }
+    });
   };
 
   return (
