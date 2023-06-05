@@ -131,7 +131,7 @@ const globalConfig: GlobalConfig = {
       url: "https://gitee.com/gzdl-strive"
     },
     {
-      name: "juejing",
+      name: "juejin",
       url: "https://juejing.com"
     }],
     recommend: [{

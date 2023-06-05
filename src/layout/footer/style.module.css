@@ -52,3 +52,11 @@
 .footer__descibe--author {
   color: var(--color-gray);
 }
+
+.social__icon {
+  font-size: var(--fontSize-md);
+}
+
+.social__icon:hover {
+  color: var(--theme-color);
+}

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
 import Content from "@v/content";
 import ErrorPage from "@l/error";
 import Document from "@v/document";
@@ -9,6 +10,7 @@ import GPT from "@v/gpt";
 const routes = createBrowserRouter([
   {
     path: "/",
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {

@@ -1,5 +1,6 @@
 :root {
   /* Basic Text Color(基本色号定义) */
+  --color-lightBlue: #ebf2fd;
   --color-blue: #228cf6;
   --color-green: #67c23a;
   --color-orange: #f2960d;

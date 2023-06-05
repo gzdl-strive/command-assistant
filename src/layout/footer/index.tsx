@@ -1,3 +1,4 @@
+import SvgIcon from "@c/svg-icon";
 import module from "./style.module.css";
 import globalConfig from "@cfg/global";
 
@@ -14,15 +15,7 @@ function Footer() {
         <div className={`${module.footer__contact} flex gap-col-1`}>
           {
             social.length && social.map(item => (
-              <a 
-                key={item.name + item.url} 
-                href={item.url} 
-                className={module['footer__contact--item']}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {item.name}
-              </a>
+              <SvgIcon name={item.name} className={module.social__icon} key={item.name}></SvgIcon>
             ))
           }
         </div>

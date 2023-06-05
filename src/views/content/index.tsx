@@ -16,7 +16,7 @@ function Content() {
   const handleMode = (mode: ModePanelMap) => {
     navigate(mode.routeName || "/", { 
       state: { 
-        value: mode 
+        ...mode
       }
     });
   };
