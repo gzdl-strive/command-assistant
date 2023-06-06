@@ -12,3 +12,11 @@
   border-left: .5rem solid var(--color-blue);
   font-size: var(--fontSize-xs);
 }
+
+.wrapper {
+  grid-gap: 3rem;
+  gap: 3rem;
+  grid-template-areas: "sidebar main toc";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr) minmax(0, 15rem);
+  padding: 0 1rem;
+}
