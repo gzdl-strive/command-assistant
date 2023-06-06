@@ -1,5 +1,10 @@
+.container {
+  padding-bottom: 3rem;
+}
+
+/* # section1-description start========= */
 .description__container {
-  padding: var(--pd-3);
+  padding: var(--pd-2);
 }
 
 .description__text {
@@ -12,11 +17,46 @@
   border-left: .5rem solid var(--color-blue);
   font-size: var(--fontSize-xs);
 }
+/* # section1-description end========== */
 
+/* # section2-content start========== */
 .wrapper {
-  grid-gap: 3rem;
-  gap: 3rem;
+  grid-gap: 2rem;
+  gap: 2rem;
   grid-template-areas: "sidebar main toc";
   grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr) minmax(0, 15rem);
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
+
+/* ## sidebar-content start========= */
+.sidebar__container {
+  display: contents;
+}
+
+.sidebar__wrapper {
+  grid-area: sidebar;
+}
+
+.sidebar {
+  position: sticky;
+  top: var(--document-sidebar-sticky-height);
+}
+
+.toc__container {
+  grid-area: toc;
+}
+
+.toc {
+  position: sticky;
+  top: var(--document-sidebar-sticky-height);
+}
+/* ## sidebar-content end========= */
+
+/* ## main-content start========== */
+.main__content {
+  grid-area: main;
+  background-color: blue;
+}
+/* ## main-content end=========== */
+
+/* # section2-content end */

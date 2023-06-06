@@ -17,7 +17,8 @@ export default defineConfig({
       "@cfg": path.resolve(__dirname, "./src/config"),
       "@l": path.resolve(__dirname, "./src/layout"),
       "@v": path.resolve(__dirname, "./src/views"),
-      "@r": path.resolve(__dirname, "./src/router")
+      "@r": path.resolve(__dirname, "./src/router"),
+      "@a": path.resolve(__dirname, "./src/assets")
     }
   }
 });

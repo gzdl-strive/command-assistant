@@ -73,6 +73,9 @@
   --content-mode-content: repeat(2, 1fr);
   --content-common-content: repeat(3, 1fr);
 
+  /* document */
+  --document-sidebar-sticky-height: 10rem;
+
   /* footer */
   --footer-content: repeat(2, 1fr);
   --footer-header-align: left;
