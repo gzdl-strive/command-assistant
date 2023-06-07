@@ -3,12 +3,16 @@ type ModelPanleType = "Doc" | "Q&A" | "Game" | "GPT";
 interface ModePanelMap {
   name: string;
   describe: string;
-  routeName?: string;
   type: ModelPanleType;
   icon?: string;
 }
 
-type CommonPanelMap = Record<"title" | "type" | "icon", string>;
+type CommonPanelMap = {
+  title: string;
+  icon: string;
+  describe: string;
+  type: ModelPanleType;
+}
 
 interface ExperienceItem {
   title: string;
@@ -58,6 +62,7 @@ interface GlobalConfig {
 }
 
 export type {
+  ModelPanleType,
   GlobalConfig,
   ModePanelMap,
   CommonPanelMap,

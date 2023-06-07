@@ -29,6 +29,7 @@
 }
 
 .panel__title {
+  text-align: left;
   margin-top: var(--mg-1);
   font-size: var(--fontSize-sm);
   color: var(--theme-textColor);

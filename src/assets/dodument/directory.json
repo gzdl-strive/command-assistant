@@ -4,11 +4,11 @@
       "title": "通用能力",
       "children": [
         {
-          "title": "Linux常用命令",
+          "title": "Linux",
           "path": "@a/document/notes/linux.md"
         },
         {
-          "title": "Vim基础",
+          "title": "Vim",
           "path": "@a/document/notes/vim.md"
         }
       ]

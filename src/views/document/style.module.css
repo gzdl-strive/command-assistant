@@ -51,8 +51,8 @@
 .sidebar__knowledge {
   font-size: var(--fontSize-xxs);
   padding: var(--pd-1-5) var(--pd-2);
-  margin-left: var(--mg-2);
   cursor: pointer;
+  transition: all 0.2s ease-out;
 }
 
 .sidebar__knowledge--active {
@@ -75,7 +75,6 @@
 /* ## main-content start========== */
 .main__content {
   grid-area: main;
-  background-color: blue;
 }
 /* ## main-content end=========== */
 

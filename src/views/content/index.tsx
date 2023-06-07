@@ -3,8 +3,9 @@ import ModelPanel from "@c/modePanel";
 import CommonPanel from "@c/commonPanel";
 import About from "./components/about";
 import globalConfig from "@cfg/global";
+import typeMapRoute from "@cfg/typeMapRoute";
 import module from "./style.module.css";
-import { ModePanelMap } from "@cfg/typing";
+import { ModePanelMap, CommonPanelMap } from "@cfg/typing";
 
 const { content: { modePanelList, commonPanelList, about } } = globalConfig;
 
@@ -14,9 +15,21 @@ function Content() {
 
   // 处理模式
   const handleMode = (mode: ModePanelMap) => {
-    navigate(mode.routeName || "/", { 
+    navigate(typeMapRoute[mode.type] || "/", { 
       state: { 
-        ...mode
+        describe: mode.describe,
+        defaultDir: null
+      }
+    });
+  };
+
+  // 常用功能
+  const commonFunc = (common: CommonPanelMap) => {
+    const { type, describe, title } = common;
+    navigate(typeMapRoute[type] || "/", { 
+      state: { 
+        describe: describe,
+        defaultDir: title
       }
     });
   };
@@ -44,7 +57,9 @@ function Content() {
         <div className={`${module.common__content} grid gap-col-3 gap-row-3`}>
           {
             commonPanelList.length && commonPanelList.map(common => (
-              <CommonPanel key={common.title + common.type} {...common} />
+              <div key={common.title + common.type} onClick={() => commonFunc(common)}>
+                <CommonPanel {...common}/>
+              </div>
             ))
           }
         </div>

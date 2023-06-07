@@ -2,7 +2,9 @@ import SvgIcon from "@c/svg-icon";
 import module from "./style.module.css";
 import { CommonPanelMap } from "@cfg/typing";
 
-function CommonPanel(props: CommonPanelMap) {
+type CommonPanelProps = CommonPanelMap;
+
+function CommonPanel(props: CommonPanelProps) {
   const { title, type, icon } = props;
 
   return (
