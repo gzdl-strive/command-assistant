@@ -42,6 +42,26 @@
   top: var(--document-sidebar-sticky-height);
 }
 
+.sidebar__module {
+  font-size: var(--fontSize-sm);
+  letter-spacing: 0.05rem;
+  margin: var(--mg-1) 0;
+}
+
+.sidebar__knowledge {
+  font-size: var(--fontSize-xxs);
+  padding: var(--pd-1-5) var(--pd-2);
+  margin-left: var(--mg-2);
+  cursor: pointer;
+}
+
+.sidebar__knowledge--active {
+  background-color: var(--theme-lightColor);
+  color: var(--theme-color);
+  border-left: .25rem solid var(--theme-color);
+  font-weight: bold;
+}
+
 .toc__container {
   grid-area: toc;
 }

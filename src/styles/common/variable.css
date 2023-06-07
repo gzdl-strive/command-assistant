@@ -5,6 +5,7 @@
   --color-green: #67c23a;
   --color-orange: #f2960d;
   --color-red: #f52323;
+  --color-lightPurple: #ece8ff;
   --color-purple: #6a58d8;
   --color-light: #ffffff;
   --color-dark: #191627;
@@ -21,6 +22,7 @@
 
   /* theme color(页面主题色) */
   --theme-color: var(--color-purple);
+  --theme-lightColor: var(--color-lightPurple);
 
   /* theme bgColor/text Color */
   --theme-bgColor: var(--color-light);
@@ -51,6 +53,7 @@
 
   /* basic margin */
   --pd-1: 1rem;
+  --pd-1-5: 1.5rem;
   --pd-2: 2rem;
   --pd-3: 3rem;
   --pd-4: 4rem;

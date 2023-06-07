@@ -1,13 +1,30 @@
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import module from "./style.module.css";
-import directory from "@a/dodument/directory.md?raw";
+import direct from "@a/dodument/directory.json";
+import { DirectType } from "./typing";
 
-console.log(directory);
+const directory: DirectType = direct.directory;
 
 function Document() {
-  const location = useLocation();
+  const [curDir, setCurDir] = useState('');
 
+  const location = useLocation();
   const { describe } = location.state;
+
+  useEffect(() => {
+    if (directory.length && directory[0].children.length) {
+      setCurDir(directory[0].children[0].title);
+    }
+  }, []);
+
+  console.log(curDir);
+
+  // const loaderSideBar = () => {
+  //   const sideBarList = 
+  // };
+
+  // directory.length && loaderSideBar();
 
   return (
     <div className={module.container}>
@@ -18,13 +35,26 @@ function Document() {
         <div className={module.sidebar__container}>
           <div className={module.sidebar__wrapper}>
             <aside className={module.sidebar}>
-              <nav className={module.sidebar__nav}>
-                <ul className={module.sidebar__list}>
-                  <li className={module.sidebar__item}>Linux命令</li>
-                  <li className={module.sidebar__item}>Vim</li>
-                  <li className={module.sidebar__item}>HTML</li>
-                  <li className={module.sidebar__item}>CSS</li>
-                  <li className={module.sidebar__item}>JS</li>
+              <nav>
+                <ul className={`flex column gap-row-1`}>
+                  {
+                    directory.map(dir => (
+                      <React.Fragment key={dir.title}>
+                        <li className={module.sidebar__module}>
+                          <strong>{ dir.title }</strong>
+                        </li>
+                        {
+                          dir.children.length && dir.children.map(subDir => (
+                            <li
+                              key={subDir.title}
+                              className={`${module.sidebar__knowledge} ${curDir === subDir.title ? module['sidebar__knowledge--active'] : ''}`}>
+                              { subDir.title }
+                            </li>
+                          ))
+                        }
+                      </React.Fragment>
+                    ))
+                  }
                 </ul>
               </nav>
             </aside>
