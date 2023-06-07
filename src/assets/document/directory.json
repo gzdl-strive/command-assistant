@@ -5,11 +5,11 @@
       "children": [
         {
           "title": "Linux",
-          "path": "@a/document/notes/linux.md"
+          "path": "/src/assets/document/notes/linux.md"
         },
         {
           "title": "Vim",
-          "path": "@a/document/notes/vim.md"
+          "path": "/src/assets/document/notes/vim.md"
         }
       ]
     },
@@ -18,7 +18,7 @@
       "children": [
         {
           "title": "了解计算机",
-          "path": "@a/document/notes/vim.md"
+          "path": "/src/assets/document/notes/vim.md"
         }
       ]
     }

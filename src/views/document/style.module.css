@@ -75,6 +75,13 @@
 /* ## main-content start========== */
 .main__content {
   grid-area: main;
+  border-left: 0.3rem solid var(--theme-color);
+  border-right: 0.3rem solid var(--theme-color);
+}
+
+.main__article {
+  font-size: 1.5rem;
+  padding: var(--pd-1) var(--pd-3);
 }
 /* ## main-content end=========== */
 
