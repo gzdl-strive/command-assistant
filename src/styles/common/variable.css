@@ -2,6 +2,8 @@
   /* Basic Text Color(基本色号定义) */
   --color-lightBlue: #ebf2fd;
   --color-blue: #228cf6;
+  --color-deepBlue: #182631;
+  --color-lightGreen: #f0ffe8;
   --color-green: #67c23a;
   --color-orange: #f2960d;
   --color-red: #f52323;
@@ -10,6 +12,7 @@
   --color-light: #ffffff;
   --color-dark: #191627;
   --color-deepDark: #100e1b;
+  --color-lighterGray: #e5e5e5;
   --color-lightGray: #cec8c8;
   --color-gray: #707070;
   --color-deepGray: #4e4d4d;

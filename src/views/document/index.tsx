@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import Scroll from "@u/scroll";
+import { getReactMarkdownConponent } from "@u/markdown"; // 解析md字符串为html结构
 import module from "./style.module.css";
 import direct from "@a/document/directory.json";
 import { DirectType, LocationState, DirType } from "./typing";
@@ -37,21 +37,6 @@ function Document() {
     });
   };
 
-  // 解析md文档为html结构
-  const md2Html = () => {
-    return <ReactMarkdown
-      components={{
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        h2: ({ node, ...nodeProps }) => {
-          return <h2
-            {...nodeProps}
-            id={nodeProps?.children[0] as string}
-          />;
-        }
-      }}
-    >{contentStr}</ReactMarkdown>;
-  };
-
   // 传入dirName
   const getMDByName = (dirName: string) => {
     if (dirName) {
@@ -69,10 +54,9 @@ function Document() {
 
   // 跳转至指定锚点
   const scrollToAnchor = (name: string) => {
-    console.log(name);
-    
     if (name) {
       const anchorElement = document.getElementById(name);
+      // 减去头部高度 => 判断offsetTop和滚动条高度 => 大/小
       anchorElement && window.scrollTo({
         top: anchorElement.offsetTop
       });
@@ -128,7 +112,7 @@ function Document() {
                   <aside className={module.toc}>
                     <nav>
                       <ul>
-                        <li onClick={() => scrollToAnchor('footer')}>查看</li>
+                        <li onClick={() => scrollToAnchor('查看')}>查看</li>
                       </ul>
                     </nav>
                   </aside>
@@ -136,7 +120,7 @@ function Document() {
               </div>
               <main className={module.main__content}>
                 <article className={module.main__article}>
-                  { contentStr ? md2Html() : 'empty' }
+                  { contentStr ? getReactMarkdownConponent(contentStr) : 'empty' }
                 </article>
               </main>
               <footer id="footer">footer</footer>

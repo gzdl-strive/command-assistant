@@ -1,0 +1,28 @@
+.blockquote {
+  background-color: var(--color-lightBlue);
+  margin: var(--pd-2) var(--pd-1);
+}
+
+.blockquote p {
+  padding: var(--pd-2) 0;
+  text-indent: var(--pd-2);
+  border-left: 0.3rem solid var(--color-blue);
+}
+
+.code {
+  background-color: var(--color-lightBlue);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  margin: 0 0.3rem;
+}
+
+.ol,
+.ol li {
+  list-style: upper-roman;
+  line-height: 2;
+}
+
+.ul,
+.ul li {
+  line-height: 2;
+}
