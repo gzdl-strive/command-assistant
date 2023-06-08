@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Scroll from "@u/scroll";
-import { getReactMarkdownConponent } from "@u/markdown"; // 解析md字符串为html结构
+import Markdown from "@u/markdown"; // 解析md字符串为html结构
+import globalConfig from "@cfg/global";
 import module from "./style.module.css";
 import direct from "@a/document/directory.json";
 import { DirectType, LocationState, DirType } from "./typing";
 
 const directory: DirectType = direct.directory;
+
+const { header: { scrollCritical } } = globalConfig;
 
 function Document() {
   const [curDir, setCurDir] = useState({
@@ -14,6 +17,8 @@ function Document() {
     path: ''
   });
   const [contentStr, setContentStr] = useState('');
+  const [tocDir, setTocDir] = useState<string[]>([]);
+  const [tocActive, setTocActive] = useState('查看');
 
   const location = useLocation();
   const { 
@@ -52,13 +57,27 @@ function Document() {
     }
   };
 
+  // 传入md字符串，返回html结构
+  const transformToHtml = (str: string) => {
+    const mk = new Markdown("document", str);
+    return mk.html;
+  };
+
   // 跳转至指定锚点
   const scrollToAnchor = (name: string) => {
     if (name) {
       const anchorElement = document.getElementById(name);
+      if (!anchorElement) return;
+      setTocActive(name);
+      const criticalVal = scrollCritical || 100;
+      let plusNum = 180;
+      const scrollY = anchorElement.offsetTop;
+      if (scrollY >= criticalVal) {
+        plusNum = 80;
+      }
       // 减去头部高度 => 判断offsetTop和滚动条高度 => 大/小
-      anchorElement && window.scrollTo({
-        top: anchorElement.offsetTop
+      window.scrollTo({
+        top: scrollY - plusNum
       });
     }
   };
@@ -70,6 +89,15 @@ function Document() {
     getMDByName(defaultDir);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultDir]);
+
+  useEffect(() => {
+    const tocDirList = document.querySelectorAll("h2[id]");
+    const result: string[] = [];
+    tocDirList.forEach(toc => {
+      result.push(toc.id);
+    });
+    setTocDir(result);
+  }, [contentStr]);
 
   return (
     <>
@@ -110,9 +138,20 @@ function Document() {
                 </div>
                 <div className={module.toc__container}>
                   <aside className={module.toc}>
+                    <h2 className={module.toc__title}>In this Article</h2>
                     <nav>
                       <ul>
-                        <li onClick={() => scrollToAnchor('查看')}>查看</li>
+                        {
+                          tocDir.length > 0 && tocDir.map(item => {
+                            return <li 
+                              onClick={() => scrollToAnchor(item)}
+                              key={item}
+                              className={`${module.toc__item} ${tocActive === item ? module['toc__item--active'] : ''} ellipsis`}
+                            >
+                              {item}
+                            </li>;
+                          })
+                        }
                       </ul>
                     </nav>
                   </aside>
@@ -120,10 +159,9 @@ function Document() {
               </div>
               <main className={module.main__content}>
                 <article className={module.main__article}>
-                  { contentStr ? getReactMarkdownConponent(contentStr) : 'empty' }
+                  { contentStr ? transformToHtml(contentStr) : 'empty' }
                 </article>
               </main>
-              <footer id="footer">footer</footer>
             </div>
           </div>
           : '404'

@@ -6,33 +6,42 @@ import module from "./markdown.module.css";
 
 const componentList = ["h2", "blockquote", "code", "ol", "ul"];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const commonMD: any = ({ node, ...nodeProps }: OrderedListProps) => {
-  const { children } = nodeProps;
-  return React.createElement(node.tagName, node.tagName === "h2" ? {
-    id: children[0]
-  } : {
-    className: module[node.tagName]
-  }, children);
-};
+class MarkDown {
+  type: string;
+  mdStr: string;
+  html: JSX.Element;
+  componentMap: Record<string, string>;
+  constructor(type: string, mdStr: string) {
+    this.type = type;
+    this.mdStr = mdStr;
+    this.componentMap = {};
+    this.html = this.initReactMarkdownComponent();
+  }
 
-const componentMap: Record<string, string> = {};
-componentList.forEach(item => {
-  (componentMap[item]) = commonMD;
-});
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  commonMD: any = ({ node, ...nodeProps }: OrderedListProps) => {
+    const { children } = nodeProps;
+  
+    if (node.tagName === "h2") {
+      return React.createElement(node.tagName, {
+        id: children[0],
+        className: module[node.tagName]
+      }, children);
+    } else {
+      return React.createElement(node.tagName, {
+        className: module[node.tagName]
+      }, children);
+    }    
+  };
 
-/**
- * 解析md字符串为HTML结构
- * @param str 
- * @returns 
- */
-function getReactMarkdownConponent(str: string) {
-  return <ReactMarkdown components={componentMap}>
-    {str}
-  </ReactMarkdown>;
+  initReactMarkdownComponent() {
+    componentList.forEach(item => {
+      (this.componentMap[item]) = this.commonMD;
+    });
+    const resHtml =  <ReactMarkdown className={this.type} components={this.componentMap}>{this.mdStr}</ReactMarkdown>;
+    return resHtml;
+  }
 }
 
-export {
-  getReactMarkdownConponent
-};
+export default MarkDown;
 

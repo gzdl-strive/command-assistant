@@ -1,3 +1,7 @@
+.h2:nth-child(n + 2) {
+  margin-top: 20px;
+}
+
 .blockquote {
   background-color: var(--color-lightBlue);
   margin: var(--pd-2) var(--pd-1);
@@ -14,6 +18,8 @@
   padding: 0.5rem;
   border-radius: 0.3rem;
   margin: 0 0.3rem;
+  /* 文本过长不自动换行 */
+  line-break: anywhere;
 }
 
 .ol,
@@ -24,5 +30,7 @@
 
 .ul,
 .ul li {
+  margin-left: var(--mg-2);
   line-height: 2;
+  list-style: square;
 }

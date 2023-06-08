@@ -70,6 +70,25 @@
   position: sticky;
   top: var(--document-sidebar-sticky-height);
 }
+
+.toc__title {
+  font-size: var(--fontSize-xs);
+  margin-bottom: var(--mg-1);
+}
+
+.toc__item {
+  font-size: var(--fontSize-xxs);
+  padding: var(--pd-1) var(--pd-1-5);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.toc__item--active {
+  background-color: var(--theme-lightColor);
+  color: var(--theme-color);
+  border-left: .25rem solid var(--theme-color);
+  font-weight: bold; 
+}
 /* ## sidebar-content end========= */
 
 /* ## main-content start========== */
