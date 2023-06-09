@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from "react-router-dom";
-import "//at.alicdn.com/t/c/font_4090792_9dozqx37j17.js";
+import "//at.alicdn.com/t/c/font_4090792_vmwkzfzfo3s.js";
 import routes from "@r/index";
 import './index.css';
 

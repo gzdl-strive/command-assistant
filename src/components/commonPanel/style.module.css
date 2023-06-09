@@ -1,7 +1,3 @@
-.panel {
-  justify-self: center;
-}
-
 .panel__content {
   width: 10rem;
   height: 10rem;
@@ -10,6 +6,7 @@
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  margin: 0 auto;
 }
 
 .panel__icon {
@@ -29,7 +26,7 @@
 }
 
 .panel__title {
-  text-align: left;
+  text-align: center;
   margin-top: var(--mg-1);
   font-size: var(--fontSize-sm);
   color: var(--theme-textColor);
@@ -60,31 +57,13 @@
   transform: translate(15px, -15px);
 }
 
-.panel:nth-child(3n + 1) .panel__content:hover .panel__border {
+.panel__content:hover .panel__border {
   border-color: var(--theme-color);
   box-shadow: -1px 1px 3px var(--theme-color);
 }
 
-.panel:nth-child(3n + 1) .panel__content:hover .panel__title {
+.panel__content:hover .panel__title {
   text-shadow: 1px 1px 2px var(--theme-color);
-}
-
-.panel:nth-child(3n + 2) .panel__content:hover .panel__border {
-  border-color: var(--color-blue);
-  box-shadow: -1px 1px 3px var(--color-blue);
-}
-
-.panel:nth-child(3n + 2) .panel__content:hover .panel__title {
-  text-shadow: 1px 1px 2px var(--color-blue);
-}
-
-.panel:nth-child(3n + 3) .panel__content:hover .panel__border {
-  border-color: var(--color-red);
-  box-shadow: -1px 1px 3px var(--color-red);
-}
-
-.panel:nth-child(3n + 3) .panel__content:hover .panel__title {
-  text-shadow: 1px 1px 2px var(--color-red);
 }
 
 .panel__content:hover + .panel__title {

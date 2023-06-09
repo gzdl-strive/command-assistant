@@ -1,5 +1,7 @@
 type ModelPanleType = "Doc" | "Q&A" | "Game" | "GPT";
 
+type ThemeType = "light" | "dark";
+
 interface ModePanelMap {
   name: string;
   describe: string;
@@ -47,6 +49,7 @@ interface GlobalConfig {
     title: string;
     subtitle: string;
     scrollCritical?: number;
+    theme: ThemeType;
   },
   content: {
     modePanelList: ModePanelMap[];

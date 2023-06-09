@@ -1,6 +1,5 @@
 .content {
   padding: var(--layout-padding);
-  background-color: var(--theme-bgColor);
 }
 
 .section {

@@ -1,6 +1,6 @@
 /* panel style */
 .panel {
-  background-color: var(--color-dark);
+  background-color: var(--panel-bgColor);
   padding: var(--pd-2);
   border-radius: 1rem;
   cursor: pointer;
@@ -8,7 +8,7 @@
 }
 
 .panel__title {
-  color: var(--color-light);
+  color: var(--panel-textColor);
   font-size: var(--fontSize-sm);
   transition: color .2s linear;
 }

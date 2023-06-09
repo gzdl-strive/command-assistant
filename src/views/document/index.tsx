@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { throttle } from "@u/common";
 import Scroll from "@u/scroll";
 import Markdown from "@u/markdown"; // 解析md字符串为html结构
 import globalConfig from "@cfg/global";
@@ -11,6 +12,8 @@ const directory: DirectType = direct.directory;
 
 const { header: { scrollCritical } } = globalConfig;
 
+let activeFlag = false; // 点击锚点flag => 用于解决锚点active闪烁
+
 function Document() {
   const [curDir, setCurDir] = useState({
     title: '',
@@ -18,7 +21,7 @@ function Document() {
   });
   const [contentStr, setContentStr] = useState('');
   const [tocDir, setTocDir] = useState<string[]>([]);
-  const [tocActive, setTocActive] = useState('查看');
+  const [tocActive, setTocActive] = useState('');
 
   const location = useLocation();
   const { 
@@ -38,6 +41,7 @@ function Document() {
     import(/*@vite-ignore*/path + "?raw").then(res => {
       if (res && res.default) {
         setContentStr(res.default);
+        setTocActive('');
       }
     });
   };
@@ -68,6 +72,7 @@ function Document() {
     if (name) {
       const anchorElement = document.getElementById(name);
       if (!anchorElement) return;
+      activeFlag = true;
       setTocActive(name);
       const criticalVal = scrollCritical || 100;
       let plusNum = 180;
@@ -79,9 +84,13 @@ function Document() {
       window.scrollTo({
         top: scrollY - plusNum
       });
+      setTimeout(() => {
+        activeFlag = false;
+      }, 500);
     }
   };
 
+  // 默认展示文档
   useEffect(() => {
     if (!directory.length || !directory[0].children.length) {
       return;
@@ -89,7 +98,7 @@ function Document() {
     getMDByName(defaultDir);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultDir]);
-
+  // 设置toc目录列表
   useEffect(() => {
     const tocDirList = document.querySelectorAll("h2[id]");
     const result: string[] = [];
@@ -97,7 +106,32 @@ function Document() {
       result.push(toc.id);
     });
     setTocDir(result);
+    result.length && setTocActive(result[0]);
   }, [contentStr]);
+  // 监听滚动，修改toc选中
+  useEffect(() => {
+    const scrollChangeTocActive = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+      
+      if (!tocDir.length || activeFlag) return;
+      tocDir.forEach(toc => {
+        const tocElement = document.getElementById(toc);
+        if (!tocElement) return;
+        const sectionHeight = tocElement.offsetHeight;
+        const sectionTop = tocElement.offsetTop;
+
+        if (scrollY > sectionTop - 80 - 20 && scrollY <= sectionTop + sectionHeight) {
+          setTocActive(toc);
+        }
+      });
+    };
+    const throttleScrollChange = throttle(scrollChangeTocActive, 100);
+
+    window.addEventListener("scroll", throttleScrollChange);
+    return () => {
+      window.removeEventListener("scroll", throttleScrollChange);
+    };
+  }, [tocDir]);
 
   return (
     <>

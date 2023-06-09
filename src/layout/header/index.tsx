@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
 import SvgIcon from "@c/svg-icon";
 import globalConfig from "@cfg/global";
+import { getLocalStorageItem, setLocalStorageItem } from "@u/common";
 import module from "./style.module.css";
 
-const { header: { title, subtitle, scrollCritical } } = globalConfig;
+const { header: { title, subtitle, scrollCritical, theme: HeaderTheme } } = globalConfig;
 
 function Header() {
   const [scrollHeader, setScrollHeader] = useState('');
+  const [theme, setTheme] = useState(getLocalStorageItem("theme") || HeaderTheme);
+
+  // 点击切换主题
+  const switchTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   useEffect(() => {
     const scrollChange = () => {
@@ -21,11 +28,18 @@ function Header() {
     };
 
     // scroll event trigger(监听滚动事件)
-    window.addEventListener('scroll', scrollChange);
+    window.addEventListener("scroll", scrollChange);
     return () => {
-      window.removeEventListener('scroll', scrollChange);
+      window.removeEventListener("scroll", scrollChange);
     };
   }, [scrollHeader]);
+
+  useEffect(() => {
+    setLocalStorageItem("theme", theme);
+    theme === "light" 
+      ? document.body.classList.remove("dark")
+      : document.body.classList.add("dark");
+  }, [theme]);
 
   return (
     <header className={`${module.header} ${module[scrollHeader]}`}>
@@ -44,7 +58,7 @@ function Header() {
           <span className={module.nav__title}>{title}</span>
         </a> 
         <div className="flex gap-col-1-5">
-          <SvgIcon name="dark-mode" className={module.nav__icon}></SvgIcon>
+          <SvgIcon name={`${theme === "light" ? "dark" : "light"}-mode`} className={module.nav__icon} onClick={switchTheme}></SvgIcon>
           <SvgIcon name="search" className={module.nav__icon}></SvgIcon>
         </div>
       </nav>

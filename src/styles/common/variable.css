@@ -59,6 +59,7 @@
   --pd-1-5: 1.5rem;
   --pd-2: 2rem;
   --pd-3: 3rem;
+  --pd-3-5: 3.5rem;
   --pd-4: 4rem;
   --pd-5: 5rem;
   --pd-6: 6rem;
@@ -69,6 +70,7 @@
   /* header/nav(头部/导航变量) */
   --header-height: 18rem;
   --header-nav-height: 6rem;
+  --header-bgColor: var(--theme-color);
   --header-textColor: var(--color-light);
   --header-subtitle-textColor: var(--color-lightGray);
   --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);
@@ -79,11 +81,32 @@
   --content-mode-content: repeat(2, 1fr);
   --content-common-content: repeat(3, 1fr);
 
+  /* panel */
+  --panel-bgColor: var(--color-dark);
+  --panel-textColor: var(--color-light);
+
   /* document */
-  --document-sidebar-sticky-height: 10rem;
+  --document-sidebar-sticky-top: 10rem;
+  --document-wrapper-areas: "sidebar main";
+  --document-wrapper-columns: minmax(0, 1fr) minmax(0, 2fr);
+  --document-sidebar-display: block;
+  --document-toc-display: none;
+  --document-code-bg: var(--color-deepGray);
 
   /* footer */
   --footer-content: repeat(2, 1fr);
   --footer-header-align: left;
   --footer-recommend-align: flex-start;
+}
+
+body.dark {
+  --theme-bgColor: var(--color-dark);
+  --theme-textColor: var(--color-light);
+
+  /* header */
+  --header-bgColor: var(--color-dark);
+
+  /* panel */
+  --panel-bgColor: var(--color-light);
+  --panel-textColor: var(--color-dark);
 }

@@ -2,6 +2,10 @@
 @import url("@s/common/reset.css"); /* import reset style(重置默认样式) */
 @import url("@s/common/public.css"); /* imort public style(公共样式) */
 
+#root {
+  background-color: var(--theme-bgColor);
+}
+
 .icon {
   width: 1em;
   height: 1em;
@@ -12,6 +16,11 @@
 
 /* sm */
 @media screen and (max-width: 767px) {
+  :root {
+    --document-wrapper-areas: "main";
+    --document-wrapper-columns: minmax(0, 1fr);
+    --document-sidebar-display: none;
+  }
 }
 @media screen and (max-width: 567px) {
   :root {
@@ -44,4 +53,9 @@
 
 /* lg */
 @media screen and (min-width: 1200px) {
+  :root {
+    --document-wrapper-areas: "sidebar main toc";
+    --document-wrapper-columns: minmax(0, 1fr) minmax(0, 2.5fr) minmax(0, 24rem);
+    --document-toc-display: block;
+  }
 }

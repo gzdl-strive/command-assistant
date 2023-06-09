@@ -5,6 +5,7 @@ const globalConfig: GlobalConfig = {
   header: {
     title: "command-assistant",
     subtitle: "used for quick retrieval command",
+    theme: "light",
     scrollCritical: 120
   },
   content: {
@@ -46,6 +47,12 @@ const globalConfig: GlobalConfig = {
         describe: "Vim基础命令。。。。。",
         type: "Doc",
         icon: "vim-gtk"
+      },
+      {
+        title: "FTP",
+        describe: "FTP常用命令",
+        type: "Doc",
+        icon: "FTP"
       },
       {
         title: "Git",
