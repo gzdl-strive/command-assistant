@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SvgIcon from "@c/svg-icon";
 import Scroll from "@u/scroll";
 import module from "./style.module.css";
 
@@ -28,7 +29,9 @@ function useScrollTop() {
       className={`${module.container} ${module[visible]} flex j_center a_center`}
       onClick={Scroll.Top}
     >
-      <a className={module.arrow}>↑</a>
+      <a>
+        <SvgIcon name="top" className={module.icon}></SvgIcon>
+      </a>
     </div>
   );
 }

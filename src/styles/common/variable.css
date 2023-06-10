@@ -94,8 +94,11 @@
   --document-code-bg: var(--color-deepGray);
 
   /* footer */
+  --footer-bgColor: var(--color-dark);
+  --footer-textColor: var(--color-light);
   --footer-content: repeat(2, 1fr);
   --footer-header-align: left;
+  --footer-contact-align: flex-start;
   --footer-recommend-align: flex-start;
 }
 
@@ -109,4 +112,7 @@ body.dark {
   /* panel */
   --panel-bgColor: var(--color-light);
   --panel-textColor: var(--color-dark);
+
+  /* footer */
+  --footer-bgColor: var(--color-deepDark);
 }

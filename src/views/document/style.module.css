@@ -43,6 +43,7 @@
 .sidebar {
   position: sticky;
   top: var(--document-sidebar-sticky-top);
+  color: var(--theme-textColor);
 }
 
 .sidebar__module {
@@ -75,6 +76,7 @@
   top: var(--document-sidebar-sticky-top);
   border-left: 0.3rem solid var(--theme-color);
   padding-left: var(--pd-1);
+  color: var(--theme-textColor);
 }
 
 .toc__title {
@@ -105,6 +107,7 @@
 .main__article {
   font-size: 1.5rem;
   padding: var(--pd-1) var(--pd-3);
+  color: var(--theme-textColor);
 }
 /* ## main-content end=========== */
 

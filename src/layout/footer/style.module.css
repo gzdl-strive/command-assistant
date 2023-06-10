@@ -1,6 +1,6 @@
 .footer {
-  background: var(--theme-textColor);
-  color: var(--theme-bgColor);
+  background: var(--footer-bgColor);
+  color: var(--footer-textColor);
   padding: var(--pd-6) var(--pd-3) var(--pd-8);
 }
 
@@ -25,6 +25,7 @@
 
 .footer__contact {
   padding: 0 var(--pd-5);
+  justify-content: var(--footer-contact-align);
 }
 
 .footer__contact--item {

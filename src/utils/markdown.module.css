@@ -15,6 +15,7 @@
   background-color: var(--color-lightBlue);
   margin: var(--pd-2) 0;
   border-radius: 0.3rem;
+  color: var(--color-dark);
 }
 
 .blockquote p {
@@ -32,6 +33,7 @@
   margin: 0 0.3rem;
   /* 文本过长不自动换行 */
   line-break: anywhere;
+  color: var(--color-dark);
 }
 
 .ol,
@@ -89,6 +91,7 @@
   background-color: var(--color-lighterGray);
   border: 1px solid gray;
   line-height: 2;
+  color: var(--color-dark);
 }
 
 .table td {
