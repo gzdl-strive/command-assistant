@@ -5,22 +5,22 @@
       "children": [
         {
           "title": "Linux",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "通用能力——Linux常用命令"
         },
         {
           "title": "Vim",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "通用能力——Vim快捷操作"
         },
         {
           "title": "FTP命令",
-          "path": "/src/assets/document/common/ftp.md",
+          "path": "/document/common/ftp.md",
           "desc": "通用能力——FTP基础知识"
         },
         {
           "title": "Git",
-          "path": "/src/assets/document/common/git.md",
+          "path": "/document/common/git.md",
           "desc": "通用能力——Git常用命令以及Flow流程"
         }
       ]
@@ -30,17 +30,17 @@
       "children": [
         {
           "title": "HTML",
-          "path": "/src/assets/document/basic/html.md",
+          "path": "/document/basic/html.md",
           "desc": "前端基础——HTML笔记"
         },
         {
           "title": "CSS",
-          "path": "/src/assets/document/basic/css.md",
+          "path": "/document/basic/css.md",
           "desc": "前端基础——CSS常用以及易忘知识"
         },
         {
           "title": "JS",
-          "path": "/src/assets/document/basic/js.md",
+          "path": "/document/basic/js.md",
           "desc": "前端基础——JS知识点"
         }
       ]
@@ -50,17 +50,17 @@
       "children": [
         {
           "title": "jQuery",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "现代流行框架——jQuery常用方法以及源码解析"
         },
         {
           "title": "Vue",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "现代流行框架——Vue知识"
         },
         {
           "title": "React",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "现代流行框架——React知识点"
         }
       ]
@@ -70,22 +70,22 @@
       "children": [
         {
           "title": "浏览器",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "前端进阶——浏览器相关知识(调试...)"
         },
         {
           "title": "TypeScript",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "前端进阶——TypeScript"
         },
         {
           "title": "NodeJS",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "前端进阶——NodeJS"
         },
         {
           "title": "工程化",
-          "path": "/src/assets/document/common/linux.md",
+          "path": "/document/common/linux.md",
           "desc": "前端进阶——工程化"
         }
       ]
@@ -95,12 +95,12 @@
       "children": [
         {
           "title": "计算机基础",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "计算机科学——计算机专业知识基本了解"
         },
         {
           "title": "计算机网络",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "计算机科学——计算机网络"
         }
       ]
@@ -110,22 +110,22 @@
       "children": [
         {
           "title": "数据结构",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "前端高手进阶——数据结构"
         },
         {
           "title": "算法",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "前端高手进阶——算法"
         },
         {
           "title": "编译原理",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "前端高手进阶——编译原理"
         },
         {
           "title": "操作系统",
-          "path": "/src/assets/document/common/vim.md",
+          "path": "/document/common/vim.md",
           "desc": "前端高手进阶——操作系统"
         }
       ]

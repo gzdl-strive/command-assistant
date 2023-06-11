@@ -7,7 +7,6 @@ let horizontal = 0;
 
 function About(props: AboutType) {
   const { introduction, experience, portfolio } = props;
-  console.log(portfolio);
 
   const transform = (value: string) => {
     const element = document.querySelector('.about__box') as HTMLDivElement;

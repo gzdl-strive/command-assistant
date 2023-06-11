@@ -5,7 +5,7 @@ import Scroll from "@u/scroll";
 import Markdown from "@u/markdown"; // 解析md字符串为html结构
 import globalConfig from "@cfg/global";
 import module from "./style.module.css";
-import direct from "@a/document/directory.json";
+import direct from "@a/document.json";
 import { DirectType, LocationState, DirType } from "./typing";
 
 const directory: DirectType = direct.directory;
