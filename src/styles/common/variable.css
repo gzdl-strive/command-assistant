@@ -85,20 +85,28 @@
   --panel-bgColor: var(--color-dark);
   --panel-textColor: var(--color-light);
 
+  /* about */
+  --about-size: 30rem;
+  --about-face-boxShadow: inset 0 0 5rem var(--theme-color);
+  --about-title: var(--fontSize-md);
+  --about-front-content: grid;
+  --about-left-unimport-visible: block;
+
   /* document */
+  --document-description-height: 10rem;
   --document-sidebar-sticky-top: 10rem;
   --document-wrapper-areas: "sidebar main";
   --document-wrapper-columns: minmax(0, 1fr) minmax(0, 2fr);
   --document-sidebar-display: block;
   --document-toc-display: none;
   --document-code-bg: var(--color-deepGray);
+  --sidebar-offset-height: calc(100vh - var(--header-height) - var(--document-description-height));
 
   /* footer */
   --footer-bgColor: var(--color-dark);
   --footer-textColor: var(--color-light);
   --footer-content: repeat(2, 1fr);
   --footer-header-align: left;
-  --footer-contact-align: flex-start;
   --footer-recommend-align: flex-start;
 }
 

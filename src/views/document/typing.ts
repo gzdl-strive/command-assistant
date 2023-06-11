@@ -1,4 +1,4 @@
-type DirType = Record<"title" | "path", string>;
+type DirType = Record<"title" | "path" | "desc", string>;
 
 type DirectType = {
   title: string;

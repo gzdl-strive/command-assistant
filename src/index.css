@@ -28,10 +28,13 @@
     --header-nav-title-visible: none;
 
     --content-mode-content: 1fr;
+    --about-size: 20rem;
+    --about-title: var(--fontSize-sm);
+    --about-front-content: none;
+    --about-left-unimport-visible: none;
 
     --footer-content: 1fr;
     --footer-header-align: center;
-    --footer-contact-align: center;
     --footer-recommend-align: center;
   }
 }

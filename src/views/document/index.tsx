@@ -15,26 +15,30 @@ const { header: { scrollCritical } } = globalConfig;
 let activeFlag = false; // 点击锚点flag => 用于解决锚点active闪烁
 
 function Document() {
-  const [curDir, setCurDir] = useState({
-    title: '',
-    path: ''
-  });
-  const [contentStr, setContentStr] = useState('');
-  const [tocDir, setTocDir] = useState<string[]>([]);
-  const [tocActive, setTocActive] = useState('');
-
+  // 获取路由传递过来的参数，defaultDir为默认展示文档，describe为页面描述
   const location = useLocation();
   const { 
     defaultDir,
     describe
   }: LocationState = location.state;
 
+  const [curDir, setCurDir] = useState({
+    title: '',
+    path: '',
+    desc: describe
+  });
+  const [contentStr, setContentStr] = useState('');
+  const [tocDir, setTocDir] = useState<string[]>([]);
+  const [tocActive, setTocActive] = useState('');
+
   // 点击修改目录
-  const changeDir = async (dir: DirType) => {
-    const { title, path } = dir;
-    title !== curDir.title && setCurDir({
+  const changeDir = (dir: DirType) => {
+    const { title, path, desc } = dir;
+    if (title === curDir.title) return;
+    setCurDir({
       title,
-      path
+      path,
+      desc,
     });
     Scroll.Top();
     
@@ -139,14 +143,14 @@ function Document() {
         directory.length ?
           <div className={module.container}>
             <div className={module.description__container}>
-              <span className={module.description__text}>{describe}</span>
+              <span className={module.description__text}>{curDir.desc}</span>
             </div>
             <div className={`${module.wrapper} grid`}>
               <div className={module.sidebar__container}>
                 <div className={module.sidebar__wrapper}>
                   <aside className={module.sidebar}>
                     <nav>
-                      <ul className={`flex column gap-row-1`}>
+                      <ul className={`${module.sidebar__ul} flex column gap-row-1`}>
                         {
                           directory.map(dir => (
                             <React.Fragment key={dir.title}>
@@ -193,7 +197,11 @@ function Document() {
               </div>
               <main className={module.main__content}>
                 <article className={module.main__article}>
-                  { contentStr ? transformToHtml(contentStr) : 'empty' }
+                  { 
+                    contentStr 
+                      ? transformToHtml(contentStr) 
+                      : <div className={module.empty}>笔记未添加</div>
+                  }
                 </article>
               </main>
             </div>

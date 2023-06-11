@@ -23,10 +23,9 @@ interface ExperienceItem {
 }
 
 interface PortfolioItem {
-  name: string;
-  time: string;
-  description: string;
+  title: string;
   address: string;
+  icon: string;
 }
 
 interface AboutType {
@@ -35,8 +34,14 @@ interface AboutType {
     description: string;
     data: Record<"name" | "value", string>[];
   };
-  experience: ExperienceItem[];
-  portfolio: PortfolioItem[];
+  experience: {
+    name: string;
+    data: ExperienceItem[];
+  };
+  portfolio: {
+    name: string;
+    data: PortfolioItem[];
+  }
 }
 
 interface FooterCommonType {

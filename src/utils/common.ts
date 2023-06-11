@@ -25,8 +25,13 @@ function setLocalStorageItem(key: string, value: string) {
   localStorage.setItem(key, value);
 }
 
+function setCSSVariable(key: string, value: string) {
+  document.documentElement.style.setProperty(key, value);
+}
+
 export {
   throttle,
   getLocalStorageItem,
-  setLocalStorageItem
+  setLocalStorageItem,
+  setCSSVariable
 };

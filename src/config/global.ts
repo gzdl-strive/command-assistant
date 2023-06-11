@@ -12,7 +12,7 @@ const globalConfig: GlobalConfig = {
     modePanelList: [
       {
         name: "文档模式",
-        describe: "该模式可便捷查询所需命令",
+        describe: "该模式可便捷查询所需命令(日常开发、学习、工作都用得到)",
         type: "Doc",
         icon: "document"
       },
@@ -38,37 +38,37 @@ const globalConfig: GlobalConfig = {
     commonPanelList: [
       {
         title: "Linux",
-        describe: "Linux常用命令。。。。。",
+        describe: "Linux常用命令——用于学习/工作中快速翻阅",
         type: "Doc",
         icon: "linux"
       },
       {
         title: "Vim",
-        describe: "Vim基础命令。。。。。",
+        describe: "Vim基础命令，日常开发使用vim编辑形式，可查看快捷操作",
         type: "Doc",
         icon: "vim-gtk"
       },
       {
         title: "FTP",
-        describe: "FTP常用命令",
+        describe: "FTP常用命令，工作中经常使用FTP",
         type: "Doc",
         icon: "FTP"
       },
       {
         title: "Git",
-        describe: "Git常用命令以及Flow.....",
-        type: "Q&A",
+        describe: "Git常用命令以及Flow，自我代码管理，日常提交规范以及检索",
+        type: "Doc",
         icon: "git"
       },
       {
         title: "JS",
-        describe: "JS笔记",
-        type: "Q&A",
+        describe: "JS笔记，对平时可能常用的JS方法进行笔记记录，方便查看",
+        type: "Doc",
         icon: "js"
       },
       {
         title: "CSS",
-        describe: "CSS笔记",
+        describe: "CSS笔记，对常用样式有个清晰的架构",
         type: "Doc",
         icon: "css"
       }
@@ -83,48 +83,51 @@ const globalConfig: GlobalConfig = {
           { name: "companies worked", value: "01" }
         ]
       },
-      experience: [
-        {
-          title: "Computer Engineer",
-          subtitle: "JiLin University of Finance and Economics",
-          time: "2017.9-2021.6"
-        },
-        {
-          title: "Web Design",
-          subtitle: "self-study",
-          time: "2020.3-2020.7"
-        },
-        {
-          title: "Web Development",
-          subtitle: "practice",
-          time: "2020.7-2021.6"
-        },
-        {
-          title: "Web Development",
-          subtitle: "working",
-          time: "2021.6-now"
-        }
-      ],
-      portfolio: [
-        {
-          name: "gzdl-profile",
-          time: "2023.04-2023.05",
-          description: "This website is suitable for PC screens, built on vite and vue3, and is a small backend project that is ready to use out of the box.",
-          address: "http://baidu.com"
-        },
-        {
-          name: "vitv-admin",
-          time: "2022-2023",
-          description: "This website is suitable for PC screens, built on vite and vue3, and is a small backend project that is ready to use out of the box.",
-          address: "http://baidu.com"
-        },
-        {
-          name: "my-single-room",
-          time: "2022-2023",
-          description: "This website is suitable for PC screens, built on vite and vue3, and is a small backend project that is ready to use out of the box.",
-          address: "http://baidu.com"
-        }
-      ]
+      experience: {
+        name: "my experience",
+        data: [
+          {
+            title: "Computer Engineer",
+            subtitle: "JiLin University of Finance and Economics",
+            time: "2017.9-2021.6"
+          },
+          {
+            title: "Web Design",
+            subtitle: "self-study",
+            time: "2020.3-2020.7"
+          },
+          {
+            title: "Web Development",
+            subtitle: "practice and work",
+            time: "2020.7-now"
+          }
+        ]
+      },
+      portfolio: {
+        name: "my project",
+        data: [
+          {
+            title: "cmd-assit",
+            address: "http://baidu.com",
+            icon: "/vite.svg"
+          },
+          {
+            title: "gzdl-profile",
+            address: "http://124.222.103.60:8890",
+            icon: "/vite.svg"
+          },
+          {
+            title: "vitv-admin",
+            address: "http://124.222.103.60",
+            icon: "http://124.222.103.60:8892/images/vitv-admin.svg"
+          },
+          {
+            title: "single-room",
+            address: "http://124.222.103.60:8888",
+            icon: "http://124.222.103.60:8892/images/my-single-room.svg"
+          }
+        ]
+      }
     }
   },
   footer: {
@@ -140,7 +143,7 @@ const globalConfig: GlobalConfig = {
     },
     {
       name: "juejin",
-      url: "https://juejing.com"
+      url: "https://juejin.cn/user/1636517801628782"
     }],
     recommend: [{
       name: "gzdlprofile",

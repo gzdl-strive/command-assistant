@@ -25,14 +25,7 @@
 
 .footer__contact {
   padding: 0 var(--pd-5);
-  justify-content: var(--footer-contact-align);
-}
-
-.footer__contact--item {
-  flex: 1;
-  color: var(--theme-bgColor);
-  font-size: var(--fontSize-xs);
-  text-align: center;
+  justify-content: center;
 }
 
 .footer__recommend {
@@ -40,8 +33,8 @@
 }
 
 .footer__recommend--item {
+  color: var(--footer-textColor);
   font-size: var(--fontSize-xs);
-  color: var(--theme-bgColor);
 }
 
 .footer__describe {
@@ -54,10 +47,14 @@
   color: var(--color-gray);
 }
 
-.social__icon {
-  font-size: var(--fontSize-md);
+.social__link {
+  color: var(--color-light);
 }
 
-.social__icon:hover {
+.social__link:hover {
   color: var(--theme-color);
+}
+
+.social__icon {
+  font-size: var(--fontSize-md);
 }

@@ -15,7 +15,15 @@ function Footer() {
         <div className={`${module.footer__contact} flex gap-col-1`}>
           {
             social.length && social.map(item => (
-              <SvgIcon name={item.name} className={module.social__icon} key={item.name}></SvgIcon>
+              <a
+                href={item.url}
+                target="_blank"
+                key={item.name}
+                rel="noreferrer"
+                className={module.social__link}
+              >
+                <SvgIcon name={item.name} className={module.social__icon}></SvgIcon>
+              </a>
             ))
           }
         </div>

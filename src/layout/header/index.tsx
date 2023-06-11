@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import SvgIcon from "@c/svg-icon";
 import globalConfig from "@cfg/global";
-import { getLocalStorageItem, setLocalStorageItem } from "@u/common";
+import { getLocalStorageItem, setLocalStorageItem, setCSSVariable } from "@u/common";
 import module from "./style.module.css";
 
 const { header: { title, subtitle, scrollCritical, theme: HeaderTheme } } = globalConfig;
@@ -22,8 +22,10 @@ function Header() {
       if (scrollY < criticalVal && !scrollHeader) return;
       if (scrollY >= criticalVal) {
         setScrollHeader('header__scroll');
+        setCSSVariable("--sidebar-offset-height", "calc(100vh - var(--document-sidebar-sticky-top))");
       } else {
         setScrollHeader('');
+        setCSSVariable("--sidebar-offset-height", "calc(100vh - var(--header-height) - var(--document-description-height))");
       }
     };
 
@@ -42,7 +44,7 @@ function Header() {
   }, [theme]);
 
   return (
-    <header className={`${module.header} ${module[scrollHeader]}`}>
+    <header className={`${module.header} ${module[scrollHeader] || ''}`}>
       <div className={`${module.header__bg} flex a_center j_center`}>
         <a href="#" title={title}>
           <img src="/vite.svg" className={module.header__logo} alt="header big logo" />
