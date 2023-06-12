@@ -1,7 +1,8 @@
-type DirType = Record<"title" | "path" | "desc", string>;
+type DirType = Record<"title" | "name" | "desc", string>;
 
 type DirectType = {
   title: string;
+  folder: string;
   children: DirType[];
 }[];
 

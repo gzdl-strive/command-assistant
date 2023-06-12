@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { throttle } from "@u/common";
+import { throttle, dynamicImportMd } from "@u/common";
 import Scroll from "@u/scroll";
 import Markdown from "@u/markdown"; // 解析md字符串为html结构
 import globalConfig from "@cfg/global";
@@ -23,8 +23,9 @@ function Document() {
   }: LocationState = location.state;
 
   const [curDir, setCurDir] = useState({
+    folder: '',
     title: '',
-    path: '',
+    name: '',
     desc: describe
   });
   const [contentStr, setContentStr] = useState('');
@@ -32,19 +33,20 @@ function Document() {
   const [tocActive, setTocActive] = useState('');
 
   // 点击修改目录
-  const changeDir = (dir: DirType) => {
-    const { title, path, desc } = dir;
+  const changeDir = (dir: DirType & { folder: string }) => {
+    const { title, name, desc, folder } = dir;
     if (title === curDir.title) return;
     setCurDir({
+      folder,
       title,
-      path,
+      name,
       desc,
     });
     Scroll.Top();
-    
-    import(/*@vite-ignore*/path + "?raw").then(res => {
-      if (res && res.default) {
-        setContentStr(res.default);
+
+    dynamicImportMd(folder, name).then(res => {
+      if (res) {
+        setContentStr(res);
         setTocActive('');
       }
     });
@@ -56,12 +58,16 @@ function Document() {
       directory.forEach(item => {
         item.children.length && item.children.forEach(subItem => {
           if (subItem.title.indexOf(dirName) !== -1) {
-            changeDir(subItem);
+            changeDir(Object.assign(subItem, {
+              folder: item.folder
+            }));
           }
         });
       });
     } else {
-      changeDir(directory[0].children[0]);
+      changeDir(Object.assign(directory[0].children[0], {
+        folder: directory[0].folder
+      }));
     }
   };
 
@@ -161,7 +167,9 @@ function Document() {
                                 dir.children.length && dir.children.map(subDir => (
                                   <li
                                     key={subDir.title}
-                                    onClick={() => changeDir(subDir)}
+                                    onClick={() => changeDir(Object.assign(subDir, {
+                                      folder: dir.folder
+                                    }))}
                                     className={`${module.sidebar__knowledge} ${curDir.title === subDir.title ? module['sidebar__knowledge--active'] : ''}`}>
                                     { subDir.title }
                                   </li>

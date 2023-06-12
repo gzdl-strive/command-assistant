@@ -7,7 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"; // 划线
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"; // 代码高亮
 import module from "./markdown.module.css";
 
-const componentList = ["h2", "h3", "blockquote", "code", "ol", "ul", "pre", "table"];
+const componentList = ["h2", "h3", "blockquote", "code", "ol", "ul", "pre", "table", "p"];
 
 class MarkDown {
   type: string;

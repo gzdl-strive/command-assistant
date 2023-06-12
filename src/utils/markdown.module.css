@@ -98,3 +98,7 @@
   border: 1px solid #ccc;
   line-height: 2;
 }
+
+.p {
+  line-height: 1.5;
+}
