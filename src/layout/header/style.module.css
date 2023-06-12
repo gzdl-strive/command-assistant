@@ -42,6 +42,7 @@
 
 .nav__logo {
   width: var(--iconSize-middle);
+  cursor: pointer;
 }
 
 .nav__title {
@@ -49,6 +50,7 @@
   text-transform: uppercase;
   color: var(--header-textColor);
   display: var(--header-nav-title-visible);
+  cursor: pointer;
 }
 
 .nav__icon {

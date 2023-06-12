@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SvgIcon from "@c/svg-icon";
 import globalConfig from "@cfg/global";
 import { getLocalStorageItem, setLocalStorageItem, setCSSVariable } from "@u/common";
+import Scroll from "@u/scroll";
 import module from "./style.module.css";
 
 const { header: { title, subtitle, scrollCritical, theme: HeaderTheme } } = globalConfig;
@@ -46,16 +47,14 @@ function Header() {
   return (
     <header className={`${module.header} ${module[scrollHeader] || ''}`}>
       <div className={`${module.header__bg} flex a_center j_center`}>
-        <a href="#" title={title}>
-          <img src="/vite.svg" className={module.header__logo} alt="header big logo" />
-        </a>
+        <img src="/vite.svg" className={module.header__logo} alt="header big logo" />
         <div className={`flex column gap-row-1`}>
           <h1 className={module.header__title}>{ title }</h1>
           <p className={module.header__subtitle}>{ subtitle }</p>
         </div>
       </div>
       <nav className={`${module.nav} flex j_between a_center`}>
-        <a className="flex a_center gap-col-1" href="#" title={title}>
+        <a className="flex a_center gap-col-1" title={title} onClick={Scroll.Top}>
           <img src="/vite.svg" className={module.nav__logo} alt="nav logo" />
           <span className={module.nav__title}>{title}</span>
         </a> 

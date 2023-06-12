@@ -42,7 +42,7 @@ function About(props: AboutType) {
             ))}
           </div>
         </div>
-        <div className={`${module.about__back} ${module.about__face}`}>反面</div>
+        <div className={`${module.about__back} ${module.about__face}`}>暂无数据</div>
         <div className={`${module.about__top} ${module.about__face}`}>上面</div>
         <div className={`${module.about__bottom} ${module.about__face}`}>下面</div>
         <div className={`${module.about__left} ${module.about__face} flex column gap-row-1 j_center a_center`}>
