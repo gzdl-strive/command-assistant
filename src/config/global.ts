@@ -61,17 +61,53 @@ const globalConfig: GlobalConfig = {
         icon: "git"
       },
       {
-        title: "JS",
-        describe: "JS笔记，对平时可能常用的JS方法进行笔记记录，方便查看",
+        title: "HTML",
+        describe: "HTML温习笔记，用于记录常用知识点",
         type: "Doc",
-        icon: "js"
+        icon: "html"
       },
       {
         title: "CSS",
         describe: "CSS笔记，对常用样式有个清晰的架构",
         type: "Doc",
         icon: "css"
-      }
+      },
+      {
+        title: "JS",
+        describe: "JS笔记，对平时可能常用的JS方法进行笔记记录，方便查看",
+        type: "Doc",
+        icon: "js"
+      },
+      {
+        title: "NodeJS",
+        describe: "NodeJS，用于记录学习Node的知识点",
+        type: "Doc",
+        icon: "nodejs"
+      },
+      {
+        title: "TypeScript",
+        describe: "TS练习",
+        type: "Doc",
+        icon: "typescript"
+      },
+      {
+        title: "jQuery",
+        describe: "jQuery源码阅读",
+        type: "Doc",
+        icon: "jquery"
+      },
+      {
+        title: "React",
+        describe: "React笔记",
+        type: "Doc",
+        icon: "react"
+      },
+      {
+        title: "Vue",
+        describe: "Vue笔记",
+        type: "Doc",
+        icon: "vue"
+      },
     ],
     about: {
       introduction: {

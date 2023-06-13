@@ -2,6 +2,10 @@
   margin-top: var(--mg-2);
 }
 
+.h2 {
+  margin-bottom: var(--mg-1);
+}
+
 .h3 {
   margin-top: var(--mg-2);
 }
