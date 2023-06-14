@@ -88,3 +88,145 @@ git reset -- hard 版本号
 - A 就可以在自己的仓库中的`pull request`上看到B提交的`pull request`,可以对B修改的代码进行review, 后进行merge
 
 ## Git Flow
+1、新建本地仓库、远程库并将主分支推送到远程库上
+```bash
+# 本地文件夹
+git init # 初始化本地仓库
+# 修改项目内容后
+git add . # 提交到暂存区
+git commit -m "xxx" # 提交到本地仓库
+git branch -M main #将主分支名从master改为main
+
+# github上新建仓库
+
+# 创建远程库别名
+# git remote add 别名 远程地址
+git remote add origin git@github.com:gzdl-strive/xxxx.git
+# 将本地主分支推送到远程库上
+git push -u origin main
+```
+
+2、创建开发主分支并将开发主分支推送到远程库上
+```bash
+# 本地仓库中创建develop分支
+# 从main主分支中拉出develop分支
+# git branch -v => 查看分支
+# git checkout 分支名 => 切换分支
+# git checkout -b 分支名 => 创建并切换至新建分支
+git checkout -b develop main # 从main分支中拉出develop分支，并切换到develop分支上
+
+# 发布develop分支到远程库
+git push -u origin develop
+```
+
+3、创建feature开发分支
+```bash
+# 本地仓库
+# 从develop拉出feature_v1.0_xxx功能分支
+git checkout -b feature_v1.0_xxx develop
+# 发布feature_v1.0_xxx分支到远程库
+git push -u origin feature_v1.0_xxx
+
+# 在feature_v1.0_xxx上开发功能
+# 完成feature_v1.0_xxx的开发
+
+# 合并到develop分支
+# 先从develop上获取最新
+git pull origin develop
+# 切换到develop分支
+git checkout develop
+# 从feature_v1.0_xxx分支合并到develop分支
+git merge --no-ff feature_v1.0_xxx
+# 删除feature_v1.0_xxx分支
+git branch -d feature_v1.0_xxx
+# 推送develop最新内容到远程develop分支上
+git push -u origin develop
+# 删除远程库上的feature_v1.0_xxx分支
+# 直接在界面上点击branches,点击删除
+```
+
+**`--no-ff`作用**
+>merge默认使用的“快进”(`fast-forward`)模式合并，所以`git merge <=> git merge -ff`
+
+- `fast-forward`: Git合并分支时，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，叫做“快进”（fast-forward）
+- `--no-ff`: 指的是强行关闭fast-forward方式
+- `--no-ff`: 会生成一个新的提交，然后指向新的提交 ==>这样会造成两个合并操作“回退版本的区别”
+
+```bash
+# 未合并前分支情况
+          A---B---C => feature
+         /
+D---E---F => main
+
+# 1、fast-forward模式
+git checkout main
+git merge feature
+
+# 结果会变成
+          A---B---C => feature
+         /             main
+D---E---F 
+
+# 2、--no-ff模式
+git checkout main
+git merge --no-ff feature
+
+# 结果会变成
+          A---B---C => feature
+         /         \
+D---E---F-----------G => min
+#由于 --no-ff 禁止了快进，所以会生成一个新的提交，main 指向 G
+```
+
+4、开始release预发布分支
+```bash
+# 从develop拉出一release分支
+# 可选，获取最新版本。git pull origin develop
+git checkout -b release_v1.0 develop
+```
+
+5、完成release，合并到main分支和develop分支，在`main`打上`tag标记`
+```bash
+# 合并到main
+git checkout main
+git merge --no-ff release_v1.0
+
+# 在 main打tag标记
+git tag release1.0 main
+git push --tags
+
+# 合并到develop
+git checkout develop
+git merge -no-ff release_v1.0
+```
+
+6、开始hotfix修复分支
+```bash
+# 从主线master拉出一个hotfix分支
+#可选，获取最新版本 git pull origin main
+git checkout -b hotfix_v1.0.1 main
+```
+
+7、完成hotfix，合并到main和develop，并在main上打tag
+```bash
+# 合并hotfix_v1.0.1到master和develop，并在main上打tag
+git checkout main
+git merge --no-ff hotfix_v1.0.1
+# 在master上打tag
+git tag hotfix1.0.1 main
+git push --tags
+# 合并hotfix_v1.0.1到develop
+git checkout develop
+git merge --no-ff hotfix_v1.0.1
+```
+
+## Git分支命名规范
+- 开发分支: 以`feature_`开头
+- 预发布分支: 以`release_`开头
+- 修复分支: 以`hotfix_`开头
+- tag标记
+    - `release`分支合并，以`release_`开头
+    - `hotfix`分支合并, 以`hotfix_`开头
+- main分支每次提交都需要打tag
+
+## commit提交规范
