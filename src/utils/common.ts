@@ -45,7 +45,7 @@ async function dynamicImportMd(folder: string, name: string) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(file.default);
-    }, 1000);
+    }, 500);
   });
 }
 
