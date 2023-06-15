@@ -17,6 +17,12 @@ const globalConfig: GlobalConfig = {
         icon: "document"
       },
       {
+        name: "GPT问答模式",
+        describe: "通过调用ChatGPT来问答，无需自己编写模板",
+        type: "GPT",
+        icon: "ask-gpt"
+      },
+      {
         name: "问答模式",
         describe: "问答模式可通过向服务器询问获得结果，无需自行查找.",
         type: "Q&A",
@@ -28,12 +34,6 @@ const globalConfig: GlobalConfig = {
         type: "Game",
         icon: "game"
       },
-      {
-        name: "GPT问答模式",
-        describe: "通过调用ChatGPT来问答，无需自己编写模板",
-        type: "GPT",
-        icon: "ask-gpt"
-      }
     ],
     commonPanelList: [
       {

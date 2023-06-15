@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import useLoading from "../../hook/useLoading";
+import Loading from "@c/loading";
 import { throttle, dynamicImportMd } from "@u/common";
 import Scroll from "@u/scroll";
 import Markdown from "@u/markdown"; // 解析md字符串为html结构
@@ -32,6 +34,8 @@ function Document() {
   const [tocDir, setTocDir] = useState<string[]>([]);
   const [tocActive, setTocActive] = useState('');
 
+  const [loading, loadMD] = useLoading(dynamicImportMd);
+
   // 点击修改目录
   const changeDir = (dir: DirType & { folder: string }) => {
     const { title, name, desc, folder } = dir;
@@ -44,9 +48,9 @@ function Document() {
     });
     Scroll.Top();
 
-    dynamicImportMd(folder, name).then(res => {
+    loadMD(folder, name).then(res => {
       if (res) {
-        setContentStr(res);
+        setContentStr(res as string);
         setTocActive('');
       }
     });
@@ -73,8 +77,8 @@ function Document() {
 
   // 传入md字符串，返回html结构
   const transformToHtml = (str: string) => {
-    const mk = new Markdown("document", str);
-    return mk.html;
+    if (str) return new Markdown("document", str).html;
+    return <div className={module.empty}>笔记未添加</div>;
   };
 
   // 跳转至指定锚点
@@ -145,77 +149,73 @@ function Document() {
 
   return (
     <>
-      {
-        directory.length ?
-          <div className={module.container}>
-            <div className={module.description__container}>
-              <span className={module.description__text}>{curDir.desc}</span>
-            </div>
-            <div className={`${module.wrapper} grid`}>
-              <div className={module.sidebar__container}>
-                <div className={module.sidebar__wrapper}>
-                  <aside className={module.sidebar}>
-                    <nav>
-                      <ul className={`${module.sidebar__ul} flex column gap-row-1`}>
-                        {
-                          directory.map(dir => (
-                            <React.Fragment key={dir.title}>
-                              <li className={module.sidebar__module}>
-                                <strong>{ dir.title }</strong>
+      <div className={module.container}>
+        <div className={module.description__container}>
+          <span className={module.description__text}>{curDir.desc}</span>
+        </div>
+        <div className={`${module.wrapper} grid`}>
+          <div className={module.sidebar__container}>
+            <div className={module.sidebar__wrapper}>
+              <aside className={module.sidebar}>
+                <nav>
+                  <ul className={`${module.sidebar__ul} flex column gap-row-1`}>
+                    {
+                      directory.map(dir => (
+                        <React.Fragment key={dir.title}>
+                          <li className={module.sidebar__module}>
+                            <strong>{ dir.title }</strong>
+                          </li>
+                          {
+                            dir.children.length && dir.children.map(subDir => (
+                              <li
+                                key={subDir.title}
+                                onClick={() => changeDir(Object.assign(subDir, {
+                                  folder: dir.folder
+                                }))}
+                                className={`${module.sidebar__knowledge} ${curDir.title === subDir.title ? module['sidebar__knowledge--active'] : ''}`}>
+                                { subDir.title }
                               </li>
-                              {
-                                dir.children.length && dir.children.map(subDir => (
-                                  <li
-                                    key={subDir.title}
-                                    onClick={() => changeDir(Object.assign(subDir, {
-                                      folder: dir.folder
-                                    }))}
-                                    className={`${module.sidebar__knowledge} ${curDir.title === subDir.title ? module['sidebar__knowledge--active'] : ''}`}>
-                                    { subDir.title }
-                                  </li>
-                                ))
-                              }
-                            </React.Fragment>
-                          ))
-                        }
-                      </ul>
-                    </nav>
-                  </aside>
-                </div>
-                <div className={module.toc__container}>
-                  <aside className={module.toc}>
-                    <h2 className={module.toc__title}>In this Article</h2>
-                    <nav>
-                      <ul>
-                        {
-                          tocDir.length > 0 && tocDir.map(item => {
-                            return <li 
-                              onClick={() => scrollToAnchor(item)}
-                              key={item}
-                              className={`${module.toc__item} ${tocActive === item ? module['toc__item--active'] : ''} ellipsis`}
-                            >
-                              {item}
-                            </li>;
-                          })
-                        }
-                      </ul>
-                    </nav>
-                  </aside>
-                </div>
-              </div>
-              <main className={module.main__content}>
-                <article className={module.main__article}>
-                  { 
-                    contentStr 
-                      ? transformToHtml(contentStr) 
-                      : <div className={module.empty}>笔记未添加</div>
-                  }
-                </article>
-              </main>
+                            ))
+                          }
+                        </React.Fragment>
+                      ))
+                    }
+                  </ul>
+                </nav>
+              </aside>
+            </div>
+            <div className={module.toc__container}>
+              <aside className={module.toc}>
+                <h2 className={module.toc__title}>In this Article</h2>
+                <nav>
+                  <ul>
+                    {
+                      tocDir.length > 0 && tocDir.map(item => {
+                        return <li 
+                          onClick={() => scrollToAnchor(item)}
+                          key={item}
+                          className={`${module.toc__item} ${tocActive === item ? module['toc__item--active'] : ''} ellipsis`}
+                        >
+                          {item}
+                        </li>;
+                      })
+                    }
+                  </ul>
+                </nav>
+              </aside>
             </div>
           </div>
-          : '404'
-      }
+          <main className={module.main__content}>
+            <article className={module.main__article}>
+              {
+                loading 
+                  ? <Loading />
+                  : transformToHtml(contentStr)
+              }
+            </article>
+          </main>
+        </div>
+      </div>
     </>
   );
 }

@@ -34,9 +34,19 @@ function setCSSVariable(key: string, value: string) {
   document.documentElement.style.setProperty(key, value);
 }
 
+/**
+ * 动态导入markdown文件
+ * @param folder 所属文件夹
+ * @param name 文件名
+ * @returns 返回md文件的内容，字符串形式
+ */
 async function dynamicImportMd(folder: string, name: string) {
   const file = await import(`../assets/document/${folder}/${name}.md?raw`);
-  return file.default;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(file.default);
+    }, 1000);
+  });
 }
 
 export {
