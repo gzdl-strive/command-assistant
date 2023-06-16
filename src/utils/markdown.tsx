@@ -31,8 +31,9 @@ class MarkDown {
     if (tagName === "h2") {
       children.length && (extraOpt["id"] = children[0] as string);
     } else if (tagName === "pre") {
-      const match = /language-(\w+)/.exec(className || '');
-      className && (extraOpt["code-type"] = (match && match.length > 2 ? match[1] : className.split('-')[1]));
+      const classStr: string = className || ((children[0] as any).props.className as string);
+      const match = /language-(\w+)/.exec(classStr || '');
+      extraOpt["code-type"] = (match && match.length > 2 ? match[1] : classStr.split('-')[1]);
       !extraOpt["code-type"] && (extraOpt["code-type"] = "bash");
     }
     return React.createElement(tagName, Object.assign({
