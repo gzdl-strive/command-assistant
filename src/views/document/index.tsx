@@ -61,7 +61,7 @@ function Document() {
     if (dirName) {
       directory.forEach(item => {
         item.children.length && item.children.forEach(subItem => {
-          if (subItem.title.indexOf(dirName) !== -1) {
+          if (subItem.title.toLowerCase() === dirName.toLowerCase()) {
             changeDir(Object.assign(subItem, {
               folder: item.folder
             }));
