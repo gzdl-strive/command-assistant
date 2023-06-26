@@ -1,0 +1,36 @@
+.container {
+  max-width: 75vw;
+  height: 50rem;
+  margin: 0 auto;
+  grid-template-columns: var(--qa-wrapper-columns);
+  grid-template-areas: var(--qa-wrapper-areas);
+  padding: 1rem;
+}
+
+.popular,
+.history {
+  display: var(--qa-sidebar-visible);
+    background: var(--qa-sidebar-border) left top,
+      var(--qa-sidebar-border) left top,
+      var(--qa-sidebar-border) right top,
+      var(--qa-sidebar-border) right top,
+      var(--qa-sidebar-border) left bottom,
+      var(--qa-sidebar-border) left bottom,
+      var(--qa-sidebar-border) right bottom,
+      var(--qa-sidebar-border) right bottom;
+    background-repeat: no-repeat;
+    background-size: 0.2rem 1rem, 1rem 0.2rem;
+}
+
+.popular {
+  grid-area: sidebar-popular;
+}
+
+.chat {
+  grid-area: main;
+  background-color: var(--color-lightBlue);
+}
+
+.history {
+  grid-area: sidebar-history;
+}

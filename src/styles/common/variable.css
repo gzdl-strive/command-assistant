@@ -102,6 +102,12 @@
   --document-code-bg: var(--color-deepGray);
   --sidebar-offset-height: calc(100vh - var(--header-height) - var(--document-description-height));
 
+  /* q&a */
+  --qa-wrapper-areas: "main";
+  --qa-wrapper-columns: 1fr;
+  --qa-sidebar-visible: none;
+  --qa-sidebar-border: linear-gradient(var(--color-purple), var(--color-purple));
+
   /* footer */
   --footer-bgColor: var(--color-dark);
   --footer-textColor: var(--color-light);
