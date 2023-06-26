@@ -182,3 +182,103 @@
 
 
 ## Web表单
+>web 表单是由一个或多个**表单控件**（有时称为小部件），以及一些有助于构建整个表单的附加元素组成——通常被称为`HTML表单`。
+
+- form元素: 所有表单都以一个form元素开始
+  - `action`: 提交表单时，需要把所收集的数据发送给谁(`URL`)
+  - `method`: 发送数据的HTTP方法(通常为`get`或`post`)
+
+>`input`是空元素，意味着不需要关闭标签。`textarea`不是空元素，因此需要使用适当的结束标签来关闭。
+
+**服务端处理表单数据**
+- name属性：表单控件添加name属性
+
+> 严格禁止在一个表单内嵌套另一个表单。嵌套会使表单的行为不可预知，而这取决于正在使用的浏览器。
+
+- `<fieldset>`: 用于创建具有相同目的的小部件组的方式，出于样式和语义目的.
+- `<legend>`: legend的文本内容正式地描述了`<fieldset>`里所含有部件的用途。
+
+## 原生表单部件
+- 常见输入类型元素(input): `button`、`checkbox`、`file`、`hidden`、`image`、`password`、`radio`、`reset`、`submit` 和 `text`
+
+**通用属性**
+- autofocus: 自动聚焦。默认false
+- disabled: 禁用.默认false
+- form: 小部件与之相关联的表单元素。
+- name: 元素名称
+- value: 元素初始值
+
+## HTML5的输入类型
+- `type="emial"`: E-mail地址地段(搭配`multiple`允许输入多个地址，以英文逗号分隔. `pattern`属性可以自定义验证行为)
+- `type="search"`: 创建搜索框
+- `type="tel"`: 电话号码字段(专门用于输入电话号码的文本域)
+- `type="url"`: URL字段
+- `type="number"`: 数字字段(`min`和`max`控制输入的最小值和最大值，`step`属性步长，如果需要允许浮点数输入，要指定`step="any"`)
+- `type="range"`: 滑块控件（`min`、`max`、`step`）
+- `type="datetime-local"`: 创建了显示和选择一个没有特定时区信息的日期和时间的控件（所有日期和时间控件都可由`min`、`max`、`step`进一步控制）
+- `type="month"`: 创建了显示和选择带有年份信息的某个月的控件
+- `type="week"`: 创建了显示和选择一年中特定编号周的控件。
+- `type="time"`: 创建了显示和选择时间的控件
+- `type="color"`: 颜色选择器
+
+## 样式化表单
+目前，在使用表单时使用 CSS 仍然有一些困难。这些问题可以分为三类：
+- 好的：`form、fieldset、label、output`，文本字段和按钮(在跨平台上时很少出现问题)
+- 不好的: `legend、checkbox和radio、placeholder`(难以被美化，并且可能需要一些复杂的技巧，偶尔需要高级的 CSS3 知识)
+- 丑陋的: `select、option、optgroup、datalist，文件选择器、progress、meter`（根本不能用应用 CSS 样式—— CSS 目前还不足以表达这些小部件的所有细微部分）
+
+## UI伪类
+- `:hover`: 只在鼠标指针悬停在一个元素上时选择该元素
+- `:focus`: 只在元素被聚焦时选择该元素（也就是说，通过键盘上的 `tab` 键选中该元素）
+- `:active`: 只在元素被激活时选择该元素（也就是说，通过点击或键盘上的 `Return` / `Enter` 键选中该元素）
+- `:required`和`:optional`: 针对必需的或可选的表单控件
+- `:valid` 和 `:invalid`、`:in-range` 和 `:out-of-range`：针对表单控件，根据对其设置的表单验证约束，或范围内/范围外，是有效/无效的。
+- `:enabled` 和 `:disabled`、`:read-only` 和 `:read-write`：针对启用或禁用的表单控件（例如，设置了 disabled HTML 属性），以及读写或只读的表单控件（例如，设置了 readonly HTML 属性）。
+- `:checked`、`:indeterminate` 和 `:default`：分别针对被选中的复选框和单选按钮，处于不确定的状态（既不被选中也不被选中），以及页面加载时默认选择的选项（例如，一个设置了 checked 属性的 `<input type="checkbox">`，或者一个设置了 `selected` 属性的 `<option>` 元素）。
+
+## 表单校验
+- 我们希望以正确的格式获取到正确的数据
+- 我们希望保护我们的用户
+- 我们希望保护我们自己
+
+**不同类型的表单数据校验**
+- 客户端校验
+  - js校验，可以完全自定义
+  - HTML5内置校验，性能好，但不能像js那样自定义
+- 服务端校验
+
+### 自定义错误信息
+- HTML5提供`constraint validation API`
+```js
+const email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I expect an e-mail, darling!");
+  } else {
+    email.setCustomValidity("");
+  }
+});
+```
+
+- 显示明确的错误消息
+- 放宽输入格式限制
+- 指出错误发生的位置
+
+## 发送文件
+>用 HTML 表单发送文件是一个特殊的例子。文件是二进制数据——或者被认为是这样的——而所有其他数据都是文本数据。由于 HTTP 是一种文本协议，所以处理二进制数据有特殊的要求。
+
+- `enctype`属性: 允许提交表单时请求中的`Content-Type`的HTTP数据头的值。默认是`application/x-www-form-urlencoded`(已编码为URL参数的表单数据)
+
+**发送文件的步骤**
+1. method为`post`, 因为文件内容不能放入URL参数中
+2. 将`enctype`值设置为`multipart/form-data`，因为数据将被分成多个部分，每个文件单独占用一个部分，表单正文中包含的文本数据（如果文本也输入到表单中）占用一个部分。
+3. 包含一个或多个`File picker`小部件，允许用户选择将要上传的文件。
+
+## 如何构建自定义表单控件
+- 设计、结构、语义
+- 无障碍
+
+>`ARIA`代表“**无障碍富互联网应用**”.使网络应用和自定义组件易于访问，它本质上是一组用来拓展 HTML 的属性集，以便我们能够更好的描述角色、状态和属性
+  - `role`属性: 定义元素的用途(每一个role定义了它自己的需求和行为)
+  - `aria-selected`属性: 标记当前被选中的选项，让辅助技术告知用户当前的选项是什么。
