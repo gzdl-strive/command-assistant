@@ -53,7 +53,7 @@
   :root {
     --qa-wrapper-areas: "sidebar-popular main sidebar-history";
     --qa-wrapper-columns: 16vw 1fr 16vw;
-    --qa-sidebar-visible: block;
+    --qa-sidebar-visible: flex;
     --footer-content: repeat(3, 1fr);
   }
 }

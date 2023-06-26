@@ -1,0 +1,95 @@
+{
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "popularList": [
+      {
+        "title": "Linux查看",
+        "count": 10
+      },
+      {
+        "title": "Vim删除整行",
+        "count": 9
+      },
+      {
+        "title": "Linux压缩",
+        "count": 6
+      },
+      {
+        "title": "ftp登录",
+        "count": 5
+      },
+      {
+        "title": "git ssh免密登录",
+        "count": 5
+      },
+      {
+        "title": "html表格",
+        "count": 3
+      },
+      {
+        "title": "css背景",
+        "count": 3
+      },
+      {
+        "title": "js异步",
+        "count": 2
+      },
+      {
+        "title": "js类",
+        "count": 2
+      },
+      {
+        "title": "css溢出",
+        "count": 1
+      },
+      {
+        "title": "vim撤销",
+        "count": 1
+      }
+    ],
+    "chatLog": [
+      {
+        "order": 1,
+        "type": "ask",
+        "content": "Linux查看"
+      },
+      {
+        "order": 2,
+        "type": "answer",
+        "content": "ls-列出当前目录下的目录或文件，ls -l列出详细信息" 
+      }
+    ],
+    "historyList": [
+      {
+        "title": "Linux查看",
+        "success": true
+      },
+      {
+        "title": "Shell脚本",
+        "success": false
+      },
+      {
+        "title": "jQuery遍历",
+        "success": false
+      },
+      {
+        "title": "css盒模型",
+        "success": true
+      },
+      {
+        "title": "js数组",
+        "success": true
+      },
+      {
+        "title": "react Hook",
+        "success": false
+      },
+      {
+        "title": "jQuery源码",
+        "success": false
+      }
+    ]
+  }
+}

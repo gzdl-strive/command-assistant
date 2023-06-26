@@ -28,7 +28,8 @@
       "@l/*": ["src/layout/*"],
       "@v/*": ["src/views/*"],
       "@r/*": ["src/router/*"],
-      "@a/*": ["src/assets/*"]
+      "@a/*": ["src/assets/*"],
+      "@api/*": ["src/api/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],

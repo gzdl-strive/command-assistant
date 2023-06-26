@@ -18,7 +18,8 @@ export default defineConfig({
       "@l": path.resolve(__dirname, "./src/layout"),
       "@v": path.resolve(__dirname, "./src/views"),
       "@r": path.resolve(__dirname, "./src/router"),
-      "@a": path.resolve(__dirname, "./src/assets")
+      "@a": path.resolve(__dirname, "./src/assets"),
+      "@api": path.resolve(__dirname, "./src/api")
     }
   }
 });
