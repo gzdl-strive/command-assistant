@@ -3,7 +3,6 @@ import { HistoryItem } from "../../typing";
 
 function History(props: HistoryItem) {
   const { title, success } = props;
-  console.log(success);
 
   return (
     <div className={`${module.container} flex a_center`}>

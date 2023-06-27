@@ -2,12 +2,14 @@ import { useState ,useEffect } from "react";
 import module from "./style.module.css";
 import Popular from "./components/popular";
 import History from "./components/history";
-import { getPopular, getHistory } from "@api/qa";
-import { PopularItem, HistoryItem } from './typing';
+import Chat from "./components/chat";
+import { getPopular, getHistory, getChatLog } from "@api/qa";
+import { PopularItem, HistoryItem, ChatLogItem } from './typing';
 
 function QA() {
   const [popularList, setPopularList] = useState<PopularItem[]>([]);
   const [historyList, setHistoryList] = useState<HistoryItem[]>([]);
+  const [chatLogList, setChatLogList] = useState<ChatLogItem[]>([]);
 
   // 获取热门推荐信息
   const getPopularList = () => {
@@ -32,9 +34,21 @@ function QA() {
     });
   };
 
+  // 获取历史日志信息
+  const getChatLogList = () => {
+    getChatLog().then(res => {
+      if (res && res.code === 200) {
+        setChatLogList(res.data as ChatLogItem[]);
+      } else {
+        setChatLogList([]);
+      }
+    });
+  };
+
   useEffect(() => {
     getPopularList();
     getHistoryList();
+    getChatLogList();
   }, []);
 
   return (
@@ -44,7 +58,9 @@ function QA() {
         { popularList.length && popularList.map(popular => <Popular key={popular.title} {...popular} />) }
       </aside>
       {/* 对话框 */}
-      <main className={module.chat} data-title="知识问答聊天框"></main>
+      <main className={module.chat} data-title="知识问答聊天框">
+        <Chat logList={chatLogList} />
+      </main>
       {/* 历史搜索 */}
       <aside className={`${module.history} flex column`} data-title="历史记录">
         { historyList.length && historyList.map(history => <History key={history.title} {...history} />) }

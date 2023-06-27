@@ -1,0 +1,14 @@
+.log__container {
+  margin-top: var(--mg-1);
+}
+
+.log__prompt {
+  text-align: center;
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.log__icon {
+  font-size: 1.3rem;
+  margin-right: var(--mg-0-5);
+}

@@ -8,7 +8,14 @@ interface HistoryItem {
   success: boolean;
 }
 
+interface ChatLogItem {
+  order: number;
+  type: "ask" | "answer";
+  content: string;
+}
+
 export type {
   PopularItem,
-  HistoryItem
+  HistoryItem,
+  ChatLogItem
 };
