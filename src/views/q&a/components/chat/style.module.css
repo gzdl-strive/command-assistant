@@ -1,3 +1,13 @@
+/* 最外层容器，用于设置高度为父容器高度 */
+.chat {
+  height: 100%;
+}
+
+/* 聊天容器 */
+.chat__container {
+  flex: 1;
+}
+
 /* 历史问答记录 */
 .log__container {
   margin-top: var(--mg-1);
@@ -12,4 +22,10 @@
 .log__icon {
   font-size: 1.3rem;
   margin-right: var(--mg-0-5);
+}
+
+/* 输入框容器 */
+.chat__input {
+  height: 6rem;
+  width: 100%;
 }

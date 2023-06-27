@@ -47,6 +47,7 @@
   transform: translateX(-50%);
   font-size: var(--fontSize-xs);
   background-color: var(--theme-color);
+  border-radius: 0.8rem 0.3rem;
   color: var(--color-light);
   padding: 0.3rem var(--pd-2);
   overflow: hidden;

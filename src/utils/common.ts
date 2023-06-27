@@ -49,10 +49,21 @@ async function dynamicImportMd(folder: string, name: string) {
   });
 }
 
+/**
+ * 计算两个日期字符串差值
+ * @param dateString1
+ * @param dateString2
+ * @returns 返回差值，单位秒
+ */
+function calcDateStringValue(dateString1: string, dateString2: string) {
+  return Math.abs(new Date(dateString1).getTime() - new Date(dateString2).getTime()) / 1000;
+}
+
 export {
   throttle,
   getLocalStorageItem,
   setLocalStorageItem,
   setCSSVariable,
-  dynamicImportMd
+  dynamicImportMd,
+  calcDateStringValue
 };
