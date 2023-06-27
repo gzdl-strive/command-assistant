@@ -8,9 +8,12 @@ interface HistoryItem {
   success: boolean;
 }
 
+type ChatType = "ask" | "answer"
+
 interface ChatLogItem {
   order: number;
-  type: "ask" | "answer";
+  type: ChatType;
+  createTime: string;
   content: string;
 }
 

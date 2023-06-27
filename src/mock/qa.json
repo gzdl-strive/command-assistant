@@ -52,13 +52,21 @@
     "chatLog": [
       {
         "order": 1,
+        "createTime": "2023-06-27 12:24:02",
         "type": "ask",
         "content": "Linux查看"
       },
       {
         "order": 2,
+        "createTime": "2023-06-27 12:25:30",
         "type": "answer",
-        "content": "ls-列出当前目录下的目录或文件，ls -l列出详细信息" 
+        "content": "ls列出当前目录下的目录或文件, ls -l查看当前目录下的目录或文件的详细信息." 
+      },
+      {
+        "order": 3,
+        "createTime": "2023-06-27 12:25:35",
+        "type": "answer",
+        "content": "请对上述回答进行评价." 
       }
     ],
     "historyList": [

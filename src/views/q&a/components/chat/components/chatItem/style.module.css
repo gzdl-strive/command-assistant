@@ -1,0 +1,39 @@
+.content {
+  padding: 0 var(--pd-1);
+  margin: var(--mg-1) 0 var(--mg-2);
+}
+
+.text {
+  padding: var(--pd-1) var(--pd-2);
+  border-radius: 1.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+}
+
+.ask .content {
+  justify-content: flex-end;
+}
+
+.ask .text {
+  background-color: var(--theme-color);
+  color: var(--color-light);
+  border-bottom-right-radius: 0.2rem;
+  /* 
+    word-wrap 属性用于指定文本是否允许在单词内换行 
+    word-break 属性用于指定文本的换行方式，即在哪些位置可以进行单词内换行
+  */
+  word-break: break-all;
+}
+
+.answer .text {
+  background-color: var(--theme-bgColor);
+  color: var(--theme-textColor);
+  border-top-left-radius: 0.2rem;
+  word-break: normal;
+  word-wrap: break-word;
+}
+
+.time {
+  font-size: 1.4rem;
+  text-align: center;
+}
