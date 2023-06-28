@@ -61,18 +61,6 @@
         "createTime": "2023-06-27 12:25:30",
         "type": "answer",
         "content": "ls列出当前目录下的目录或文件, ls -l查看当前目录下的目录或文件的详细信息." 
-      },
-      {
-        "order": 3,
-        "createTime": "2023-06-27 12:25:35",
-        "type": "answer",
-        "content": "请对上述回答进行评价." 
-      },
-      {
-        "order": 4,
-        "createTime": "2023-06-27 12:25:38",
-        "type": "answer",
-        "content": "This is Test for Time." 
       }
     ],
     "historyList": [

@@ -1,10 +1,11 @@
 import { useState ,useEffect } from "react";
-import module from "./style.module.css";
 import Popular from "./components/popular";
 import History from "./components/history";
 import Chat from "./components/chat";
+import Scroll from "@u/scroll";
 import { getPopular, getHistory, getChatLog } from "@api/qa";
 import { PopularItem, HistoryItem, ChatLogItem } from './typing';
+import module from "./style.module.css";
 
 function QA() {
   const [popularList, setPopularList] = useState<PopularItem[]>([]);
@@ -46,6 +47,7 @@ function QA() {
   };
 
   useEffect(() => {
+    Scroll.Top();
     getPopularList();
     getHistoryList();
     getChatLogList();

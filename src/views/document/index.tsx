@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import useLoading from "../../hook/useLoading";
+import useLoading from "@h/useLoading";
 import Loading from "@c/loading";
 import { throttle, dynamicImportMd } from "@u/common";
 import Scroll from "@u/scroll";

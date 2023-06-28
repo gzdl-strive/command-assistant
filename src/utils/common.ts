@@ -59,11 +59,24 @@ function calcDateStringValue(dateString1: string, dateString2: string) {
   return Math.abs(new Date(dateString1).getTime() - new Date(dateString2).getTime()) / 1000;
 }
 
+/**
+ * 获取当前日期时间字符串
+ * @returns 返回格式为YYYY-MM-DD HH:mm:ss格式时间字符串
+ */
+function getCurrentDateTimeString() {
+  const currentDate = new Date();
+  // ISO 8601格式示例：2023-06-28T01:41:52.000Z
+  // toISOString 方法将日期转换为 ISO 8601 格式的字符串，并使用 split('T')[0] 方法将日期部分提取出来
+  // toLocaleTimeString 方法将时间转换为本地时间格式的字符串
+  return currentDate.toISOString().split('T')[0] + ' ' + currentDate.toLocaleTimeString();
+}
+
 export {
   throttle,
   getLocalStorageItem,
   setLocalStorageItem,
   setCSSVariable,
   dynamicImportMd,
-  calcDateStringValue
+  calcDateStringValue,
+  getCurrentDateTimeString
 };

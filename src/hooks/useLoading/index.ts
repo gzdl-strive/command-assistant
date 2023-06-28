@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
-import { LoadingParams } from "./typing";
+
+type LoadingParams = (...args: string[]) => Promise<unknown>;
 
 const useLoading = (req: LoadingParams) => {
   const [loading, setLoading] = useState<boolean>(false);

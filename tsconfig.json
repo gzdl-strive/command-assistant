@@ -29,7 +29,8 @@
       "@v/*": ["src/views/*"],
       "@r/*": ["src/router/*"],
       "@a/*": ["src/assets/*"],
-      "@api/*": ["src/api/*"]
+      "@api/*": ["src/api/*"],
+      "@h/*": ["src/hooks/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],

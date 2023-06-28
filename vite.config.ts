@@ -19,7 +19,8 @@ export default defineConfig({
       "@v": path.resolve(__dirname, "./src/views"),
       "@r": path.resolve(__dirname, "./src/router"),
       "@a": path.resolve(__dirname, "./src/assets"),
-      "@api": path.resolve(__dirname, "./src/api")
+      "@api": path.resolve(__dirname, "./src/api"),
+      "@h": path.resolve(__dirname, "./src/hooks")
     }
   }
 });

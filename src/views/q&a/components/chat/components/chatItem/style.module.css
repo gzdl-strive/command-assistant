@@ -36,4 +36,5 @@
 .time {
   font-size: 1.4rem;
   text-align: center;
+  color: var(--color-gray);
 }

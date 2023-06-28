@@ -1,0 +1,33 @@
+.container {
+  position: fixed;
+  top: 20%;
+  right: -101%;
+  height: 6rem;
+  max-width: 30rem;
+  background-color: var(--color-lighterGray);
+  border-radius: 1rem;
+  padding: var(--pd-1) var(--pd-5) var(--pd-1) var(--pd-2);
+  word-break: break-all;
+  z-index: 10;
+  animation: moveIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.icon {
+  font-size: var(--fontSize-md);
+}
+
+.message {
+  font-size: var(--fontSize-xs);
+}
+
+@keyframes moveIn {
+  0% {
+    right: -101%;
+  }
+  20% {
+    right: -20%;
+  }
+  100% {
+    right: -1%;
+  }
+}
