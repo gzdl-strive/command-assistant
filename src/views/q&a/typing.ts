@@ -6,6 +6,7 @@ interface PopularItem {
 interface HistoryItem {
   title: string;
   success: boolean;
+  createTime: string;
 }
 
 type ChatType = "ask" | "answer"

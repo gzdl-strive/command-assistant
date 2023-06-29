@@ -1,23 +1,28 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import useStateCallback from "@h/useStateCallback";
 import SvgIcon from "@c/svg-icon";
 import ChatItem from "./components/chatItem";
 import ChatInput from "./components/chatInput";
 import { calcDateStringValue, getCurrentDateTimeString } from "@u/common";
 import Scroll from "@u/scroll";
+import useToast from "@h/useToast";
+import Toast from "@c/toast";
 import module from "./style.module.css";
 import { ChatLogItem } from "../../typing";
 
 interface ChatProps {
   logList: ChatLogItem[];
+  askInput: string;
+  resetInputAsk: () => void;
 }
 
-function Chat(props: ChatProps) {
-  const { logList } = props;
+const Chat = (props: ChatProps) => {
+  const { logList, askInput, resetInputAsk } = props;
   const [showLog, setShowLog] = useState<boolean>(false);
   const [qAList, setQAList] = useStateCallback<ChatLogItem[]>([]);
   const [disabledInput, setDisabledInput] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [visible, message, showToast] = useToast();
 
   // 点击展示历史日志信息
   const changeShowLog = () => {
@@ -37,7 +42,11 @@ function Chat(props: ChatProps) {
   };
 
   // 输入问题
-  const inputAsk = (input: string) => {
+  const inputAsk = useCallback((input: string) => {
+    if (disabledInput) {
+      showToast("暂时无法提交新问题", 5000);
+      return;
+    }
     setQAList([
       ...qAList, {
         order: qAList[qAList.length - 1]?.order + 1 || 1,
@@ -51,7 +60,14 @@ function Chat(props: ChatProps) {
       // 禁用输入
       setDisabledInput(true);
     });
-  };
+  }, [disabledInput, qAList, setQAList, showToast]);
+
+  useEffect(() => {
+    if (askInput) {
+      inputAsk(askInput);
+      resetInputAsk();
+    }
+  }, [askInput, inputAsk, resetInputAsk]);
 
   return (
     <div className={`flex column gap-row-1 ${module.chat}`}>
@@ -75,7 +91,7 @@ function Chat(props: ChatProps) {
         }
         {
           qAList.length > 0
-            ? <section className={module.qa__container}>
+            ? <section className={`${module.qa__container} ${showLog ? module.qa__border : ''}`}>
               {
                 qAList.sort((a, b) => a.order - b.order)
                   .map((qa, index) => {
@@ -89,8 +105,11 @@ function Chat(props: ChatProps) {
       <section className={module.chat__input}>
         <ChatInput handleInput={inputAsk} disabled={disabledInput} />
       </section>
+      { visible ? <Toast message={message} msgType="warning"></Toast> : '' }
     </div>
   );
-}
+};
+
+Chat.displayName = "Chat";
 
 export default Chat;

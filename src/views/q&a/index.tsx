@@ -11,6 +11,7 @@ function QA() {
   const [popularList, setPopularList] = useState<PopularItem[]>([]);
   const [historyList, setHistoryList] = useState<HistoryItem[]>([]);
   const [chatLogList, setChatLogList] = useState<ChatLogItem[]>([]);
+  const [chatInputAsk, setChatInputAsk] = useState("");
 
   // 获取热门推荐信息
   const getPopularList = () => {
@@ -46,6 +47,16 @@ function QA() {
     });
   };
 
+  // 点击热门推荐词条/历史记录调用chat子组件中的方法
+  const handleAsk = (input: string) => {
+    setChatInputAsk(input);
+  };
+
+  // 重置词条
+  const handleResetAskInput = () => {
+    setChatInputAsk('');
+  };
+
   useEffect(() => {
     Scroll.Top();
     getPopularList();
@@ -57,15 +68,29 @@ function QA() {
     <div className={`${module.container} grid gap-col-1-5`}>
       {/* 热门推荐词条 */}
       <aside className={`${module.popular} flex column`} data-title="热门推荐">
-        { popularList.length && popularList.map(popular => <Popular key={popular.title} {...popular} />) }
+        { 
+          popularList.length && 
+          popularList.map(popular => <Popular 
+            key={popular.title}
+            handleAsk={handleAsk}
+            {...popular}
+          />) 
+        }
       </aside>
       {/* 对话框 */}
       <main className={module.chat} data-title="知识问答聊天框">
-        <Chat logList={chatLogList} />
+        <Chat logList={chatLogList} askInput={chatInputAsk} resetInputAsk={handleResetAskInput} />
       </main>
       {/* 历史搜索 */}
       <aside className={`${module.history} flex column`} data-title="历史记录">
-        { historyList.length && historyList.map(history => <History key={history.title} {...history} />) }
+        { 
+          historyList.length && 
+          historyList.map(history => <History 
+            key={history.title}
+            handleAsk={handleAsk}
+            {...history}
+          />) 
+        }
       </aside>
     </div>
   );

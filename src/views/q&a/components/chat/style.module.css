@@ -52,7 +52,11 @@
 .qa__container {
   margin-top: var(--mg-1);
   padding-top: var(--pd-1);
-  border-top: 0.2rem dashed var(--theme-color);
+}
+
+.qa__border {
+  padding-top: var(--pd-2);
+  border-top: 0.15rem dashed var(--link-color);
 }
 
 /* 输入框容器 */

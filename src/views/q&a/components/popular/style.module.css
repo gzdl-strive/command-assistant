@@ -31,4 +31,5 @@
   width: 2rem;
   text-align: center;
   font-size: var(--fontSize-xxs);
+  color: var(--theme-color);
 }

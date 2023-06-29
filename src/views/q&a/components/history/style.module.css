@@ -30,5 +30,5 @@
 .success {
   width: 2rem;
   text-align: center;
-  font-size: var(--fontSize-xxs);
+  font-size: var(--fontSize-xs);
 }
