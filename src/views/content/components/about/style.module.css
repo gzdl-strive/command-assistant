@@ -120,6 +120,21 @@
   transform: scale(1.2);
 }
 
+/* back content */
+.back__content {
+  height: 100%;
+}
+
+.about__back--target {
+  font-size: var(--fontSize-xs);
+  color: var(--theme-color);
+}
+
+.about__back--today {
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+}
+
 /* keyboard style */
 .about__keyboard {
   margin-top: var(--mg-6);

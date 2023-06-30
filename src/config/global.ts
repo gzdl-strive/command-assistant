@@ -79,6 +79,12 @@ const globalConfig: GlobalConfig = {
         icon: "js"
       },
       {
+        title: "SHELL",
+        describe: "SHELL脚本学习",
+        type: "Doc",
+        icon: "shell"
+      },
+      {
         title: "NodeJS",
         describe: "NodeJS，用于记录学习Node的知识点",
         type: "Doc",
@@ -163,6 +169,10 @@ const globalConfig: GlobalConfig = {
             icon: "http://124.222.103.60:8892/images/my-single-room.svg"
           }
         ]
+      },
+      plan: {
+        target: "重新构建前端知识体系",
+        curTarget: "无障碍了解、Shell脚本"
       }
     }
   },

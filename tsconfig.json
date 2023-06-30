@@ -30,7 +30,8 @@
       "@r/*": ["src/router/*"],
       "@a/*": ["src/assets/*"],
       "@api/*": ["src/api/*"],
-      "@h/*": ["src/hooks/*"]
+      "@h/*": ["src/hooks/*"],
+      "@m/*": ["src/mock/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],

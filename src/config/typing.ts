@@ -41,6 +41,10 @@ interface AboutType {
   portfolio: {
     name: string;
     data: PortfolioItem[];
+  },
+  plan: {
+    target: string;
+    curTarget: string;
   }
 }
 

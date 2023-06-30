@@ -1,18 +1,18 @@
 import AnalogKeyboard from "@c/analogKeyboard";
-import module from "./style.module.css";
 import { AboutType } from "@cfg/typing";
 import { DirectionBtn } from "./typing";
+import module from "./style.module.css";
 
 let horizontal = 0;
 
 function About(props: AboutType) {
-  const { introduction, experience, portfolio } = props;
+  const { introduction, experience, portfolio, plan } = props;
 
   const transform = (value: string) => {
     const element = document.querySelector('.about__box') as HTMLDivElement;
     element.style.transform = value;
   };
-
+  // keyboard事件
   const handleKeyboard = (direction: DirectionBtn) => {
     switch(direction) {
     case "left":
@@ -42,7 +42,13 @@ function About(props: AboutType) {
             ))}
           </div>
         </div>
-        <div className={`${module.about__back} ${module.about__face}`}>暂无数据</div>
+        <div className={`${module.about__back} ${module.about__face}`}>
+          <div className={`${module.back__content} flex column j_center a_center gap-row-2`}>
+            <h2 className={`${module.about__title}`}>近期目标</h2>
+            <h3 className={module["about__back--target"]}>{plan.target}</h3>
+            <p className={module["about__back--today"]}>{plan.curTarget}</p>
+          </div>
+        </div>
         <div className={`${module.about__top} ${module.about__face}`}>上面</div>
         <div className={`${module.about__bottom} ${module.about__face}`}>下面</div>
         <div className={`${module.about__left} ${module.about__face} flex column gap-row-1 j_center a_center`}>

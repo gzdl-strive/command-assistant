@@ -23,6 +23,11 @@
           "title": "Git",
           "name": "git",
           "desc": "通用能力——Git常用命令以及Flow流程"
+        },
+        {
+          "title": "Shell",
+          "name": "shell",
+          "dsc": "通用能力——Shell脚本"
         }
       ]
     },

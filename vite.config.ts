@@ -8,6 +8,13 @@ export default defineConfig({
   server: {
     port: 8000,
     open: true
+    // proxy: {
+    //   "/github": {
+    //     target: "https://github.com/gzdl-strive/gzdl-strive",
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/github/, '')
+    //   }
+    // }
   },
   resolve: {
     alias: {
@@ -20,7 +27,8 @@ export default defineConfig({
       "@r": path.resolve(__dirname, "./src/router"),
       "@a": path.resolve(__dirname, "./src/assets"),
       "@api": path.resolve(__dirname, "./src/api"),
-      "@h": path.resolve(__dirname, "./src/hooks")
+      "@h": path.resolve(__dirname, "./src/hooks"),
+      "@m": path.resolve(__dirname, "./src/mock")
     }
   }
 });
