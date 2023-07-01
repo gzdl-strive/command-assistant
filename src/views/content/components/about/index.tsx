@@ -1,4 +1,6 @@
+import { useRef, useEffect, useCallback } from "react";
 import AnalogKeyboard from "@c/analogKeyboard";
+import { isCompleteInViewport } from "@u/common";
 import { AboutType } from "@cfg/typing";
 import { DirectionBtn } from "./typing";
 import module from "./style.module.css";
@@ -7,14 +9,17 @@ let horizontal = 0;
 
 function About(props: AboutType) {
   const { introduction, experience, portfolio, plan } = props;
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const transform = (value: string) => {
     const element = document.querySelector('.about__box') as HTMLDivElement;
     element.style.transform = value;
   };
+
   // keyboard事件
-  const handleKeyboard = (direction: DirectionBtn) => {
-    switch(direction) {
+  const handleKeyboard = useCallback((direction: DirectionBtn) => {
+    switch(
+      direction) {
     case "left":
       horizontal -= 1;
       break;
@@ -25,11 +30,34 @@ function About(props: AboutType) {
       break;
     }
     transform(`rotateY(${90 * horizontal}deg)`);
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (!containerRef.current || !isCompleteInViewport(containerRef.current)) return;
+      switch(e.keyCode) {
+      case 37: 
+        handleKeyboard("left");
+        break;
+      case 39:
+        handleKeyboard("right");
+        break;
+      default:
+        break;
+      }
+    };
+    
+    // 监听键盘事件
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, [handleKeyboard]);
 
   return (
-    <div className={`${module.about__container}`}>
-      <div className={`${module.about__box} about__box`}>
+    <div className={`${module.about__container} test666`}>
+      <div ref={containerRef} className={`${module.about__box} about__box`}>
         <div className={`${module.about__front} ${module.about__face} flex column gap-row-2 j_center a_center`}>
           <h2 className={module.about__title}>{introduction.name}</h2>
           <h3 className={module.about__subtitle}>{introduction.description}</h3>

@@ -71,6 +71,61 @@ function getCurrentDateTimeString() {
   return currentDate.toISOString().split('T')[0] + ' ' + currentDate.toLocaleTimeString();
 }
 
+/**
+ * 判断传入的元素是否出现在视口中
+ * @param element 
+ * @returns 
+ */
+function isInViewport(element: HTMLDivElement) {
+  // 获取可视窗口高度
+  const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  // 获取滚动条滚动的高度
+  const scrollTop = document.documentElement.scrollTop;
+  // 获取元素偏移的高度。就是距离可视窗口的偏移量
+  // const offsetTop = element.offsetTop; // 计算出来的不准确，父元素中存在定位导致的
+  const offsetTop = calcOffsetTop(element);
+
+  // 出现在视口，且不超出
+  return offsetTop - scrollTop <= screenHeight && (offsetTop + element.clientHeight) >= scrollTop;
+}
+
+/**
+ * 判断传入的元素是否整个暴露在可视窗口内
+ * @param element 
+ * @returns 
+ */
+function isCompleteInViewport(element: HTMLElement) {
+  const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+  const viewWidth = window.innerWidth || document.documentElement.clientWidth;
+  // 当滚动条滚动时，top, left, bottom, right时刻会发生改变。
+  const {
+    top,
+    right,
+    bottom,
+    left
+  } = element.getBoundingClientRect();
+  return (top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight);
+}
+
+/**
+ * 计算当前元素距离顶部距离
+ * @param dom 
+ * @param distance 
+ * @returns 
+ */
+// offsetParent就是距离该子元素最近的进行过定位的父元素（position：absolute relative fixed），如果其父元素中不存在定位则offsetParent为：body元素
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function calcOffsetTop(dom: any, distance = 0): number {
+  if (['BODY', null].includes(dom.offsetParent.nodeName)) {
+    distance += dom.offsetTop;
+    return distance;
+  } else {
+    distance += dom.offsetTop;
+    return calcOffsetTop(dom.offsetParent, distance);
+  }
+}
+
+
 export {
   throttle,
   getLocalStorageItem,
@@ -78,5 +133,7 @@ export {
   setCSSVariable,
   dynamicImportMd,
   calcDateStringValue,
-  getCurrentDateTimeString
+  getCurrentDateTimeString,
+  isInViewport,
+  isCompleteInViewport
 };
