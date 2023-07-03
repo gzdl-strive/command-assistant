@@ -1,0 +1,4 @@
+.container {
+  padding: 0 var(--pd-3);
+  height: 100%;
+}

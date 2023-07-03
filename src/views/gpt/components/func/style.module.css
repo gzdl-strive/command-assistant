@@ -1,0 +1,85 @@
+.container {
+  height: 100%;
+  padding: var(--pd-3) 0;
+}
+
+.icons {
+  position: relative;
+}
+
+.icons__logo {
+  width: 8rem;
+  z-index: 1;
+}
+
+.icons:hover > .icons__bg {
+  animation: bg_show 2s ease-in-out infinite;
+}
+
+.icons__bg {
+  position: absolute;
+  width: 8.4rem;
+  height: 8.4rem;
+  border-radius: 50%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  background-image: linear-gradient( -45deg, #bd34fe 50%, #47caff 50% );
+  filter: blur(1.5rem);
+}
+
+.icons__text {
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color);
+  padding: var(--pd-0-5) var(--pd-1-5);
+  border-radius: 2rem;
+}
+
+.func {
+  width: 100%;
+  padding: var(--pd-1) var(--pd-2);
+  border-left: 0.2rem solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.func:hover {
+  color: var(--theme-color);
+  border-left-color: var(--theme-color);
+  background-image: linear-gradient(left, rgba(82 64 255 / 20%), rgba(82 64 255 / 10%));
+  background-image: -webkit-linear-gradient(left, rgba(82 64 255 / 10%), rgba(82 64 255 / 2%));
+}
+
+.func:hover .func__icon {
+  color: var(--theme-color);
+  transform: scale(1.05);
+}
+
+.func:hover .func__title {
+  font-weight: bold;
+}
+
+.func__icon {
+  font-size: 2rem;
+}
+
+.func__title {
+  font-size: var(--fontSize-xxs);
+  letter-spacing: 0.2rem;
+}
+
+@keyframes bg_show {
+  0% {
+    width: 8.4rem;
+    height: 8.4rem;
+  }
+  50% {
+    width: 9.4rem;
+    height: 9.4rem;
+    top: -1rem;
+  }
+  100% {
+    width: 8.4rem;
+    height: 8.4rem;
+  }
+}

@@ -1,6 +1,22 @@
 .container {
-  max-width: 76vw;
-  height: 45rem;
-  margin: 5rem auto;
-  padding: 1rem;
+  max-width: 60vw;
+  height: 50rem;
+  margin: var(--mg-3) auto;
+  padding: var(--pd-1);
+  grid-template-columns: 20rem 1fr;
+  grid-template-areas: "aside main";
+}
+
+.function {
+  grid-area: aside;
+  background-color: var(--color-lightPurple);
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+
+.chat {
+  grid-area: main;
+  background-color: var(--color-lightBlue);
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
 }
