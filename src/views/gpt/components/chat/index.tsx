@@ -4,9 +4,27 @@ import module from "./style.module.css";
 
 function GptChatCom() {
   return (
-    <div className={module.container}>
-      <section className={module.quick}>
-        <QuickAction />
+    <div className={`${module.container} flex column gap-row-1`}>
+      <section className={module.content}>
+        <section className={module.quick}>
+          <QuickAction />
+        </section>
+        <section className={module.ask}>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+          <div>6666</div>
+        </section>
       </section>
       <section className={module.input}>
         <ChatInput />

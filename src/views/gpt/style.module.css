@@ -1,6 +1,6 @@
 .container {
-  max-width: 60vw;
-  height: 50rem;
+  max-width: 70vw;
+  height: 60rem;
   margin: var(--mg-3) auto;
   padding: var(--pd-1);
   grid-template-columns: 20rem 1fr;
@@ -16,6 +16,7 @@
 
 .chat {
   grid-area: main;
+  height: 100%;
   background-color: var(--color-lightBlue);
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
