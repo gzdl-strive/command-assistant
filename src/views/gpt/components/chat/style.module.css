@@ -1,7 +1,7 @@
 .container {
   height: 100%;
   max-height: 60rem;
-  padding: 0 var(--pd-3);
+  padding: var(--gpt-main-padding);
 }
 
 .content {

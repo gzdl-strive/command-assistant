@@ -29,7 +29,7 @@
 }
 
 .panelList {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: var(--gpt-quick-action-columns);
   padding: var(--pd-1) var(--pd-3);
 }
 

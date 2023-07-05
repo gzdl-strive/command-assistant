@@ -111,6 +111,15 @@
   --qa-sidebar-visible: none;
   --qa-sidebar-border: linear-gradient(var(--color-purple), var(--color-purple));
 
+  /* gpt */
+  --gpt-container-max-width: 70vw;
+  --gpt-wrapper-areas: "main";
+  --gpt-wrapper-columns: 1fr;
+  --gpt-sidebar-visible: none;
+  --gpt-main-border-radius: 3rem;
+  --gpt-main-padding: 0 var(--pd-3);
+  --gpt-quick-action-columns: repeat(2, 1fr);
+
   /* footer */
   --footer-bgColor: var(--color-dark);
   --footer-textColor: var(--color-light);

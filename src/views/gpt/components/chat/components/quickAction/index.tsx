@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import SvgIcon from "@c/svg-icon";
 import module from "./style.module.css";
 
@@ -15,11 +16,30 @@ const AICanList = [
 ];
 
 function QuickAction(props: QuickActionProps) {
+  const [AICount, setAICount] = useState(6);
 
   // 试一试
   const handleTry = (title: string) => {
     props.askInput(title);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const { innerWidth } = window;
+      if (innerWidth <= 567) {
+        setAICount(2);
+      } else if (innerWidth <= 768 && innerWidth > 567) {
+        setAICount(4);
+      } else {
+        setAICount(6);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("reisze", handleResize);
+    };
+  }, []);
 
   return (
     <div className={`${module.container} flex column gap-row-1`}>
@@ -34,7 +54,7 @@ function QuickAction(props: QuickActionProps) {
       </div>
       <section className={`${module.panelList} grid gap-col-1 gap-row-1`}>
         {
-          AICanList.length && AICanList.map(panel => {
+          AICanList.length && AICanList.filter((_, index) => index < AICount).map((panel) => {
             return <div
               className={`${module.panel} flex column gap-row-1-5`}
               key={panel.id}
