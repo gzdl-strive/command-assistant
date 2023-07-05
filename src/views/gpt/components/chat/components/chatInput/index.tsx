@@ -2,7 +2,11 @@ import { useRef } from "react";
 import SvgIcon from "@c/svg-icon";
 import module from "./style.module.css";
 
-function ChatInput() {
+interface ChatInputProps {
+  askInput: (input: string) => void;
+}
+
+function ChatInput(props: ChatInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // 点击提问
@@ -11,10 +15,10 @@ function ChatInput() {
     if (!inputRef.current) return;
 
     const inputValue = inputRef.current.value;
-    console.log("input: ", inputValue);
     //* 调用父组件方法，将至传递给他，并显示到页面上
-    // handleInput(inputValue);
+    props.askInput(inputValue);
     // !disabled && (inputRef.current.value = '');
+    inputRef.current.value = '';
   };
 
   return (

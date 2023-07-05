@@ -1,10 +1,12 @@
 import { ChatLogItem } from "../../typing";
 import module from "./style.module.css";
 
-function ChatLog(props: ChatLogItem) {
-  const { content, type, createTime } = props;
+type ChatLogProps = ChatLogItem & {
+  showTime: boolean;
+}
 
-  const showTime = true;
+function ChatLog(props: ChatLogProps) {
+  const { content, type, createTime, showTime } = props;
 
   return (
     <div className={`${type === "ask" ? module.ask : module.answer}`}>
