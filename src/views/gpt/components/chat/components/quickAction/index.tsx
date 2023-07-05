@@ -1,6 +1,10 @@
 import SvgIcon from "@c/svg-icon";
 import module from "./style.module.css";
 
+type QuickActionProps = {
+  askInput: (content: string) => void;
+}
+
 const AICanList = [
   { id: "201", title: "“AI伙伴可以做什么?”" },
   { id: "301", title: "“帮我写一篇关于XXXX的古诗?”" },
@@ -10,7 +14,13 @@ const AICanList = [
   { id: "701", title: "“测试一下长文本长文本长文本长文本?”" },
 ];
 
-function QuickAction() {
+function QuickAction(props: QuickActionProps) {
+
+  // 试一试
+  const handleTry = (title: string) => {
+    props.askInput(title);
+  };
+
   return (
     <div className={`${module.container} flex column gap-row-1`}>
       <h2 className={module.title}>Hi 早上好</h2>
@@ -25,7 +35,11 @@ function QuickAction() {
       <section className={`${module.panelList} grid gap-col-1 gap-row-1`}>
         {
           AICanList.length && AICanList.map(panel => {
-            return <div className={`${module.panel} flex column gap-row-1-5`} key={panel.id}>
+            return <div
+              className={`${module.panel} flex column gap-row-1-5`}
+              key={panel.id}
+              onClick={() => handleTry(panel.title)}
+            >
               <h3 className={`${module.panel__title}`}>{panel.title}</h3>
               <button className={module.panel__btn}>试一试</button>
             </div>;

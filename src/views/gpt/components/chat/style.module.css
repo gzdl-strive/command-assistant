@@ -6,6 +6,7 @@
 
 .content {
   flex: 1;
+  scroll-behavior: smooth;
   overflow-y: auto;
 }
 
@@ -23,6 +24,10 @@
 .content::-webkit-scrollbar-thumb {
   background-color: var(--color-blue);
   border-radius: 0.5rem;
+}
+
+.log {
+  margin-top: var(--mg-2);
 }
 
 .input {
