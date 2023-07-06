@@ -4,9 +4,11 @@ import module from "./style.module.css";
 
 interface ChatInputProps {
   askInput: (input: string) => void;
+  disabled: boolean;
 }
 
 function ChatInput(props: ChatInputProps) {
+  const { disabled, askInput } = props;
   const inputRef = useRef<HTMLInputElement>(null);
 
   // 点击提问
@@ -16,9 +18,8 @@ function ChatInput(props: ChatInputProps) {
 
     const inputValue = inputRef.current.value;
     //* 调用父组件方法，将至传递给他，并显示到页面上
-    props.askInput(inputValue);
-    // !disabled && (inputRef.current.value = '');
-    inputRef.current.value = '';
+    askInput(inputValue);
+    !disabled && (inputRef.current.value = '');
   };
 
   return (
