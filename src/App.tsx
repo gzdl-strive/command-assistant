@@ -4,7 +4,6 @@ import Header from "@l/header";
 import Footer from "@l/footer";
 import ScrollTop from "@c/scrollTop";
 import Scroll from "@u/scroll";
-import "./App.css";
 
 function App() {
   const scrollY = window.scrollY || document.documentElement.scrollTop;

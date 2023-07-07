@@ -75,26 +75,26 @@
     },
     {
       "title": "前端进阶",
-      "folder": "common",
+      "folder": "advanced",
       "children": [
         {
           "title": "浏览器",
-          "name": "linux",
+          "name": "browser",
           "desc": "前端进阶——浏览器相关知识(调试...)"
         },
         {
           "title": "TypeScript",
-          "name": "linux",
+          "name": "ts",
           "desc": "前端进阶——TypeScript"
         },
         {
           "title": "NodeJS",
-          "name": "linux",
+          "name": "node",
           "desc": "前端进阶——NodeJS"
         },
         {
           "title": "工程化",
-          "name": "linux",
+          "name": "engineer",
           "desc": "前端进阶——工程化"
         }
       ]
