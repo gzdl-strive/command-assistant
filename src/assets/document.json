@@ -27,7 +27,7 @@
         {
           "title": "Shell",
           "name": "shell",
-          "dsc": "通用能力——Shell脚本"
+          "desc": "通用能力——Shell脚本"
         }
       ]
     },
