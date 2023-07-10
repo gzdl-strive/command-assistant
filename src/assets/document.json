@@ -54,21 +54,21 @@
     },
     {
       "title": "现代流行框架",
-      "folder": "common",
+      "folder": "popularFramework",
       "children": [
         {
           "title": "jQuery",
-          "name": "linux",
+          "name": "jQuery",
           "desc": "现代流行框架——jQuery常用方法以及源码解析"
         },
         {
           "title": "Vue",
-          "name": "linux",
+          "name": "vue",
           "desc": "现代流行框架——Vue知识"
         },
         {
           "title": "React",
-          "name": "linux",
+          "name": "react",
           "desc": "现代流行框架——React知识点"
         }
       ]
@@ -101,42 +101,42 @@
     },
     {
       "title": "计算机科学基础",
-      "folder": "common",
+      "folder": "computerScience",
       "children": [
         {
           "title": "计算机基础",
-          "name": "linux",
+          "name": "basic",
           "desc": "计算机科学——计算机专业知识基本了解"
         },
         {
           "title": "计算机网络",
-          "name": "linux",
+          "name": "network",
           "desc": "计算机科学——计算机网络"
         }
       ]
     },
     {
-      "title": "前端高手进阶",
-      "folder": "common",
+      "title": "进阶之路",
+      "folder": "highAdvanced",
       "children": [
         {
           "title": "数据结构",
-          "name": "linux",
+          "name": "dataStructure",
           "desc": "前端高手进阶——数据结构"
         },
         {
           "title": "算法",
-          "name": "linux",
+          "name": "algorithm",
           "desc": "前端高手进阶——算法"
         },
         {
           "title": "编译原理",
-          "name": "linux",
+          "name": "compiler",
           "desc": "前端高手进阶——编译原理"
         },
         {
           "title": "操作系统",
-          "name": "linux",
+          "name": "operatingSystem",
           "desc": "前端高手进阶——操作系统"
         }
       ]

@@ -85,9 +85,47 @@
 - `keyof`只能拿到`class`的`public`索引，`private`和`protected`的索引会被忽略
 - `const`是常量的意思，也就是这个变量首先是一个字面量值，而且还不可修改，有字面量和`readonly`两重函数。所以加上`as const`会推导出readonly的字面量类型.
 
+## TS内置高级类型
+- `Parameters`: 提取函数类型的参数类型
+- `ReturnType`: 提取函数类型的返回值类型
+- `ConstructorParmeters`: 提取构造器类型的参数类型
+- `InstanceType`: 提取构造器类型的返回值类型
+- `ThisParameterType`: 提取this类型
+- `OmitThisParameter`: 删除this类型
+- `Partial`: 索引类型变为可选
+- `Required`: 索引类型变为必选（去掉可选-?）
+- `Readonly`: 索引类型变为只读
+- `Pick`: 提取部分索引构造新索引类型
+- `Omit`: 去掉部分索引构造新索引类型
+- `Record`: 创建索引类型
+- `Exclude`: 从一个联合类型中去掉一部分类型——取差集
+- `Extract`: 从一个联合类型中取出相同的类型——取交集
+- `Awaited`: 提取Promise的ValueType
+- `NonNullable`: 判断是否为非空类型(不为null和undefined)
+- `Uppercase`: 大写
+- `Lowercase`: 小写
+- `Capitalize`: 首字母大写
+- `Uncapitalize`: 首字母小写
 
+**其它知识点**
+- `keyof any => string | number | symbol(配置中开启keyOfStringsOnly => string)`
+- `intrinsic`: 固有的意思，就像js中有的方法会打印`[native code]`一样。这部分类型不是在TS中实现的，而是编译过程中由js实现(因为解析类型需要处理AST，性能比较差，直接用js计算更快)
 
+## 类型编程的意义
+>需要动态生成类型的场景，必然要用类型编程做一些运算。有的场景下可以不用类型编程，但是用了能够有更精准的类型提示和检查。
 
+- ` unknown[] | []`: ts里有个 `as const` 的语法，加上之后，ts 就会推导出常量字面量类型，否则推导出对应的基础类型.
 
+>约束为 `unknown[] | []` 就是 `as const` 的意思
+```ts
+declare function ttt<T extends readonly unknown[]>(values: T): T;
+// const res: number[]
+const res = ttt([1, 2, 3]);
+
+declare function ttt2<T extends readonly unknown[] | []>(values: T): T;
+// const res2: [number, number, number]
+const res2 = ttt2([1, 2, 3]);
+```
+类型参数 T 是通过 js 函数的参数传入的，然后取 `typeof`
 
 
