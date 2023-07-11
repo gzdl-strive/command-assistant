@@ -217,3 +217,233 @@ each: function (context, callback) {
 }
 ```
 
+## val方法
+- 不传参数(获取值): 获取匹配到的第一项的值
+- 传参数(设置值): 将匹配到的所有项的值都设置为指定值
+  - 原始值
+  - 函数
+
+```js
+let rreturn = /\r/g;
+jQuery.fn.extend({
+  val: function (value) {
+    let ret,
+      valuesIsFunction,
+      elem = this[0];
+
+    // 处理不传递参数的情况——获取值
+    if (!arguments.length) {
+      // 如果有匹配到的Html标签
+      if (elem) {
+        ret = elem.value;
+
+        if (typeof ret === "string") {
+          return ret.replace(rreturn, "");
+        }
+
+        return ret === null ? "" : ret;
+      }
+
+      return;
+    }
+
+    valuesIsFunction = isFunction(value);
+
+    return this.each(function (i) {
+      let val;
+      
+      // nodeType为1表示的是元素节点(标签)
+      // 仅处理元素节点
+      if (this.nodeType !== 1) {
+        return;
+      }
+
+      if (valuesIsFunction) {
+        val = value.call(this, i, jQuery(this).val());
+      } else {
+        val = value;
+      }
+
+      if (val === null) {
+        val = "";
+      } else if (typeof val === "number") {
+        val += "";
+      } else if (Array.isArray(val)) {
+        val = val.map(function (item) {
+          return item === null ? "" : item + ""; 
+        });
+      }
+
+      this.value = val;
+    });
+  }
+});
+```
+
+## access函数
+> 主要用于设置和获取集合的值的多用途方法
+> 它可以在集合的每个元素上调用一个函数，并返回一个表示操作结果的对象
+
+这个方法通常用于遍历和操作集合中的元素，例如添加、修改或删除属性，或者修改或读取元素的数据
+- `elems`：集合中的元素。
+- `fn`：在每个元素上执行的函数。
+- `key`：可选参数，用于设置或获取元素属性或集合的值。
+- `value`：可选参数，用于设置或获取元素属性或集合的值。
+- `chainable`：可选参数，表示是否可以链式调用
+
+```js
+var access = function (elems, fn, key, value, chainable) {
+  let i = 0, len = elems.length, raw;
+
+  // 当传入的key是一个对象时，设置多个值
+  if (toType(key) === "object") {
+    chainable = true;
+    for (i in key) {
+      access(elems, fn, i, key[i], true);
+    }
+  } else if (value !== undefined) {
+    // 设置单个值
+    chainable = true;
+
+    // 不为函数，则为原始值
+    if (!isFunction(value)) {
+      raw = true;
+    }
+
+    if (fn) {
+      for (; i < len; i++) {
+        fn(
+          elems[i],
+          key,
+          raw ? value : value.call(elems[i], i, fn(elems[i], key))
+        );
+      }
+    }
+  }
+
+  if (chainable) {
+    return elems;
+  }
+  // 获取值，仅对第一个匹配项执行fn函数
+  return len ? fn(elems[0], key) : undefined;
+}
+```
+
+## attr方法、removeAttr方法
+- 只传一个参数
+  - 属性名字符串 => 获取该属性的值
+  - 对象 => 属性名和值对象，设置多个属性值
+- 传递两个参数: 
+  - 第二个参数为值：设置单个属性值
+    - 设置为null -> 调用removeAttr方法
+    - 不为null -> `setAttribute`
+  - 第二个参数为函数：执行函数设置值(在access方法中已经将函数执行的结果传递过来，所以我们不需要考虑如何处理函数，只需要知道函数的返回值就是我们需要设置的值)
+
+还涉及到获取元素属性值，这里只简单通过元素的`getAttribute`方法获取即可.
+
+```js
+jQuery.fn.extend({
+  attr: function (name, value) {
+    // 只有name表示获取值
+    // name和value同时有，表示设置值
+    return access(this, jQuery.attr, name, value, arguments.length > 1);
+  },
+  removeAttr: function (name) {
+    return this.each(function () {
+      jQuery.removeAttr(this, name);
+    });
+  }
+});
+const rnothtmlwhite = (/[^\x20\t\r\n\f]+/g);
+jQuery.extend({
+  attr: function(elem, name, value) {
+    let ret,
+      nType = elem.nodeType;
+
+    // 不能对文本、注释、属性节点上的属性进行set/get
+    if (nType === 3 || nType === 8 || nType === 2) {
+      return;
+    }
+
+    // 设置值
+    if (value !== undefined) {
+      if (value === null) {
+        // 移除该属性
+        jQuery.removeAttr(elem, name);
+        return;
+      }
+
+      elem.setAttribute(name, value + "");
+      return value;
+    }
+
+    ret = jQuery.find.attr(elem, name);
+
+    // 不存在属性则返回null
+    return ret === null ? undefined : ret;
+  },
+  removeAttr: function (elem, value) {
+    let name,
+      i = 0,
+      // 属性名称可以包含非HTML空白字符
+      attrNames = value && value.match(rnothtmlwhite);
+
+    if (attrNames && elem.nodeType === 1) {
+      while (name = attrNames[i++]) {
+        elem.removeAttribute(name);
+      }
+    }
+  }
+});
+
+jQuery.find.attr = function (elem, attr) {
+  return elem.getAttribute(attr) || null;
+}
+```
+
+## prop方法
+>`prop`方法只能获取元素固有的属性值
+
+和`attr`方法十分类型，只不过在一些地方存在不同
+```js
+jQuery.fn.extend({
+  prop: function (name, value) {
+    return access(this, jQuery.prop, name, value, arguments.length > 1);
+  },
+  removeProp: function (name) {
+    return this.each(function () {
+      delete this[jQuery.propFix[name] || name];
+    });
+  }
+});
+
+jQuery.extend({
+  prop: function (elem, name, value) {
+    let nType = elem.nodeType;
+
+    // 不能对文本、注释、属性节点上的属性进行set/get
+    if (nType === 3 || nType === 8 || nType === 2) {
+      return;
+    }
+
+    // 修复prop属性值
+    name = jQuery.propFix[name] || name;
+    
+    // 设置值
+    if (value !== undefined) {
+      return (elem[name] = value);
+    }
+
+    return elem[name];
+  },
+  propFix: {
+    "for": "htmlFor",
+    "class": "className"
+  }
+});
+```
+
+## css方法
+```js
+
+```
