@@ -444,6 +444,84 @@ jQuery.extend({
 ```
 
 ## css方法
+- 单个参数
+  - 字符串 => 获取该属性的值
+  - 数组 => 获取该属性列表的值，返回一个map
+  - 对象 => 设置多个属性
+- 两个参数
+  - 字符串、字符串 => 设置单个属性
+  - 字符串、函数 => 设置单个属性，值为函数返回值
 ```js
+jQuery.fn.extend({
+  css: function (name, value) {
+    return access(this, function (elem, name, value) {
+      let len, map = {}, i = 0;
 
+      if (Array.isArray(name)) {
+        len = name.length;
+
+        for (; i < len; i++) {
+          map[name[i]] = jQuery.css(elem, name[i]);
+        }
+
+        return map;
+      }
+
+      return value !== undefined
+        // 设置
+        ? jQuery.style(elem, name, value) 
+        // 获取
+        : jQuery.css(elem, name);
+    }, name, value, arguments.length > 1);
+  }
+});
+jQuery.extend({
+  css: function (elem, name) {
+    return curCss(elem, name);
+  },
+  style: function (elem, name, value) {
+    // 不能给文本/注释节点设置样式
+    if (!elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style) {
+      return;
+    }
+    let style = elem.style;
+    
+    if (value !== undefined) {
+
+      // 确保value不为null且value不为NaN
+      if (value === null || value !== value) {
+        return;
+      }
+
+      style[name] = value;
+    } else {
+      return style[name];
+    }
+  }
+});
+// 获取CSS属性值
+function curCss(elem, name, computed) {
+  let ret;
+  
+  computed = computed || getStyles(elem);
+
+  if (computed) {
+    ret = computed.getPropertyValue(name) || computed[name];
+  }
+
+  return ret !== undefined ? ret + "" : ret;
+}
+// 获取styles对象
+function getStyles(elem) {
+  // 在DOM（文档对象模型）中，每个节点都有一个ownerDocument属性，它返回该节点所属的文档对象
+  let view = elem.ownerDocument.defaultView;
+
+  if (!view || !view.opener) {
+    view = window;
+  }
+
+  return view.getComputedStyle(elem);
+}
 ```
+
+## xxx
