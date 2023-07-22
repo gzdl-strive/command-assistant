@@ -524,4 +524,101 @@ function getStyles(elem) {
 }
 ```
 
-## xxx
+## empty方法
+>对匹配到的项依次清空
+```js
+jQuery.fn.extend({
+  empty: function () {
+    var elem,
+      i = 0;
+      // 这里仅使用 !=  因为要匹配循环结束的undefined
+    for (; (elem = this[i]) != null; i++) {
+      if (elem && elem.nodeType === 1) {
+        elem.textContent = "";
+      }
+    }
+    return this;
+  }
+})
+```
+
+## text方法
+- 不传参数(获取值)：将所有匹配到的项的文本内容拼接起来返回
+- 一个参数
+  - 字符串：将匹配到的项的文本内容都设置为该值
+  - 数组：将匹配到的项的文本内容设置为该数组拼接起来的值，例如`["a", "b"]` => `a,b`
+  - 对象: 将匹配到的项的文本内容设置为该对象（不可取），会显示文本`[Object...]`
+  - 函数: 函数返回的值将会作为所有匹配到的项的文本内容
+
+>同样是通过调用`access`函数来处理，不同的是，text方法不存在key属性，所以key设置为null，但之前我们处理的access没有处理文本的情况，所以也需要修改`access`
+
+```js
+//* 修改后的access函数，仅显示新增的内容
+var access = function (elems, fn, key, value, chainable) {
+  // 新增bulk，用于判断key是否为null
+  let bulk = key == null;
+
+  //...
+  // else if (value !== undefined) {
+    //...
+    if(bulk) {
+      // 非函数，不需要遍历elems, 所以直接在这里调用fn方法，只传入value
+      // fn置为null,这样后面就不会执行下面的调用
+      if (raw) {
+        fn.call(elems, value);
+        fn = null;
+      } else {
+        // 函数，因为不需要用到key, 所以重写fn函数
+        bulk = fn;
+        fn = function (elem, _key, value) {
+          return bulk.call(jQuery(elem), value);
+        }
+      }
+    } 
+  // }
+
+  // 获取
+  if (bulk) {
+    return fn.call(elems);
+  }
+}
+```
+
+**text方法**
+```js
+jQuery.fn.extend({
+  text: function (value) {
+    return access(this, function (value) {
+      return value === undefined ? jQuery.text(this) : this.empty().each(function (_, textDOM) {
+        // jQuery是通过this来操作的，这里使用each函数的第二个参数也一样
+        textDOM.textContent = value;
+      });
+    }, null, value, arguments.length);
+  },
+});
+
+// 获取文本
+jQuery.text = function (elem) {
+  var node,
+    ret = "",
+    i = 0,
+    nodeType = elem.nodeType;
+
+  // 传入的elem是通过jQuery获取到的类数组对象，我们需要遍历该对象
+  if (!nodeType) {
+    while ((node = elem[i++])) {
+      ret += jQuery.text(node);
+    }
+  } else if (nodeType === 1 || nodeType === 9 || nodeType === 11) {
+    // nodeType 1 => 元素节点
+    // nodeType 9 => Docment节点
+    // nodeType 11 => Document Fragment节点
+    if (typeof elem.textContent === "string") {
+      return elem.textContent;
+    } else {
+      // 暂不处理
+    }
+  }
+  return ret;
+}
+```
