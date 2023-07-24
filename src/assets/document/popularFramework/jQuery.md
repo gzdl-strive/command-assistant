@@ -493,7 +493,7 @@ jQuery.extend({
         return;
       }
 
-      style[name] = value;
+      style[name] = value;****
     } else {
       return style[name];
     }
@@ -622,3 +622,190 @@ jQuery.text = function (elem) {
   return ret;
 }
 ```
+
+## first/last/eq方法
+- eq方法，获取给定索引的值的集合
+  - 传入的索引参数可以是负数
+  - `j = +i + (i < 0 ? len : 0);`
+    - `+i`是将非数字转为数字
+    - 当i为>=0时，要获取的索引为 i
+    - 当i为负数时，要获取的索引为len - i
+```js
+jQuery.fn = jQuery.prototype = {
+  // ...
+  // first
+  first: function () {
+    return this.eq(0);
+  },
+  // last
+  last: function () {
+    return this.eq(-1);
+  },
+  // eq
+  eq: function (i) {
+    var len = this.length,
+      j = +i + (i < 0 ? len : 0);
+    return this.pushStack(j >= 0 && j < len ? [this[j]] : []);
+  }
+}
+```
+
+## 通用扁平化方法
+- 只能扁平化一层
+- 如果浏览器支持flat方法，就直接使用flat，否则使用concat方法配合apply展开
+```js
+const arr = [];// 用来引用原型上的方法
+
+// 定义扁平化方法，只能展开一层
+const flat = arr.flat ? function(array) {
+  // 直接执行flat函数，用call和apply一样
+  return arr.flat.call(array);
+} : function (array) {
+  // 这里必须是要apply，因为需要将array的参数展开传给concat的数组
+  return arr.concat.apply([], array);
+}
+```
+
+## map方法
+>遍历类数组/数组，对象，对每一项执行传入的回调方法，并将结果保存到一个集合中，返回出去
+```js
+jQuery.extend({
+  // map
+  map: function (elems, callback) {
+    var length, value,
+      i = 0,
+      ret = [];
+
+    // 遍历数组，将每个项转为新值
+    if (isArrayLike(elems)) {
+      length = elems.length;
+      for (; i < length; i++) {
+        value = callback(elems[i], i);
+
+        if (value !== null) {
+          ret.push(value);
+        }
+      }
+    } else {
+      // 遍历对象的key
+      for (i in elems) {
+        value = callback(elems[i], i);
+
+        if (value !== null) {
+          ret.push(value);
+        }
+      }
+    }
+
+    return flat(ret);
+  }
+})
+```
+
+## dir方法
+- dir方法（direction方向）朝一个方向一直迭代到尽头
+```js
+// elem为起点，dir为方向
+var dir = function (elem, dir) {
+  var matched = [];
+  // 例如previousSibling, 每次都将elem设置为它的前一个兄弟元素，依次迭代，将匹配到的项加入到结果集中
+  while ((elem = elem[dir]) && elem.nodeType !== 9) {
+    if (elem.nodeType === 1) {
+      matched.push(elem);
+    }
+  }
+
+  return matched;
+}
+```
+
+## uniqueSort: 对结果进行去重并排好序
+- 先对结果集进行排序，然后使用一个指针来移动，判断当前位置元素和下一个元素是否相等，如果相等，将索引加入到待删除数组中，指针后移...
+
+```js
+var hasDuplicate = true;
+// uniqueSort方法
+jQuery.uniqueSort = jQuery.unique = function (results) {
+  var elem,
+    duplicates = [],
+    j = 0,
+    i = 0;
+
+  // 先对results进行排序
+  // 使用text方法获取到文本，然后排序——这里只是简单模拟，并不准确
+  results.sort(function (a, b) {
+    var contentA = $$(a).text();
+    var contentB = $$(b).text();
+    return (contentA < contentB) ? -1 : (contentA > contentB);
+  });
+
+  if (hasDuplicate) {
+    // 循环进行两两比较，存在重复项就添加进duplicates
+    // 这里的results是经过排序后的，所以可以进行两两比较去重
+    while (elem = results[i++]) {
+      // 判断当前项和下一项是否相等
+      if (elem === results[i]) {
+        // j赋值为重复数组的长度
+        // duplicates记录需要移除的下标
+        j = duplicates.push(i);
+      }
+    }
+    // 循环删除重复项
+    while (j--) {
+      results.splice(duplicates[j], 1);
+    }
+  }
+
+  return results;
+}
+```
+
+## prevAll: 返回在它之前的所有兄弟元素
+```js
+var rparentsprev = /^(?:parents|prev(?:Until|All))/;
+// 当从唯一集合开始时保证生成唯一集合的方法
+var guaranteedUnique = {};
+
+jQuery.each({
+  prevAll: function (elem) {
+    return dir(elem, "previousSibling");
+  }
+}, function (name, fn) {
+  jQuery.fn[name] = function () {
+    var matched = jQuery.map(this, fn);
+
+    // length > 1的情况，就可能存在出现重复结果
+    if (this.length > 1) {
+      // 移除重复结果
+      if (!guaranteedUnique[name]) {
+        jQuery.uniqueSort(matched);
+      }
+
+      // parents*和prev-derivatives的逆序
+      if (rparentsprev.test(name)) {
+        matched.reverse();
+      }
+    }
+    
+    return this.pushStack(matched);
+  }
+});
+```
+
+## index方法
+- 不传参数：当前元素相对于父元素的索引值
+  - 借用了first方法和prevAll方法
+  - 通过first方法取到匹配项的第一个元素
+  - prevAll方法会返回在它之前的所有兄弟元素
+- 传递一个参数：
+```js
+jQuery.fn.extend({
+  index: function (elem) {
+    // 没有参数的情况下，返回他相对于父节点的index
+    // 如果存在父节点那么获取第一个匹配项的下标——通过取prevAll()的length就可以得到索引
+    return (this[0] && this[0].parentNode) ? this.first().prevAll().length : -1;
+  }
+});
+```
+
+## xxx
