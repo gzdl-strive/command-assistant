@@ -48,12 +48,18 @@ function Document() {
     });
     Scroll.Top();
 
-    loadMD(folder, name).then(res => {
-      if (res) {
-        setContentStr(res as string);
-        setTocActive('');
-      }
-    });
+    try {
+      loadMD(folder, name).then(res => {
+        if (res) {
+          setContentStr(res as string);
+          setTocActive('');
+        }
+      }).catch((err) => {
+        throw new Error(err);
+      });
+    } catch(e) {
+      throw new Error("error");
+    }
   };
 
   // 传入dirName

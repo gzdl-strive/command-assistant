@@ -78,19 +78,24 @@
       "folder": "advanced",
       "children": [
         {
-          "title": "浏览器",
-          "name": "browser",
-          "desc": "前端进阶——浏览器相关知识(调试...)"
-        },
-        {
           "title": "TypeScript",
           "name": "ts",
           "desc": "前端进阶——TypeScript"
         },
         {
+          "title": "Debug",
+          "name": "debug",
+          "desc": "Chrome Debug、VSCode debugger调试通关"
+        },
+        {
           "title": "NodeJS",
           "name": "node",
           "desc": "前端进阶——NodeJS"
+        },
+        {
+          "title": "浏览器",
+          "name": "browser",
+          "desc": "前端进阶——浏览器相关知识(调试...)"
         },
         {
           "title": "工程化",

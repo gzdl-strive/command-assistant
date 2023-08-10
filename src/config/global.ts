@@ -79,10 +79,16 @@ const globalConfig: GlobalConfig = {
         icon: "js"
       },
       {
-        title: "SHELL",
-        describe: "SHELL脚本学习",
+        title: "TypeScript",
+        describe: "TS练习",
         type: "Doc",
-        icon: "shell"
+        icon: "typescript"
+      },
+      {
+        title: "Debug",
+        describe: "Chrome Debug、VSCode Debugger调试学习，深入调试",
+        type: "Doc",
+        icon: "debug"
       },
       {
         title: "NodeJS",
@@ -91,10 +97,10 @@ const globalConfig: GlobalConfig = {
         icon: "nodejs"
       },
       {
-        title: "TypeScript",
-        describe: "TS练习",
+        title: "SHELL",
+        describe: "SHELL脚本学习",
         type: "Doc",
-        icon: "typescript"
+        icon: "shell"
       },
       {
         title: "jQuery",
