@@ -1,0 +1,66 @@
+/* 最外层容器，用于设置高度为父容器高度 */
+.chat {
+  height: 100%;
+}
+
+/* 聊天容器 */
+.chat__container {
+  flex: 1;
+  scroll-behavior: smooth;
+  max-height: 36rem;
+  overflow-y: auto;
+}
+
+/* 定义垂直滚动条的样式 */
+.chat__container::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* 定义水平滚动条的样式 */
+.chat__container::-webkit-scrollbar-track {
+  background-color: var(--color-lightPurple);
+}
+
+/* 定义滚动条滑块的颜色 */
+.chat__container::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+  border-radius: 0.5rem;
+}
+
+/* 定义当鼠标悬停在滚动条滑块上时的样式 */
+.chat__container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--link-color);
+}
+
+/* 历史问答记录 */
+.log__container {
+  margin-top: var(--mg-1);
+}
+
+.log__prompt {
+  text-align: center;
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.log__icon {
+  font-size: 1.3rem;
+  margin-right: var(--mg-0-5);
+}
+
+/* 对话记录 */
+.qa__container {
+  margin-top: var(--mg-1);
+  padding-top: var(--pd-1);
+}
+
+.qa__border {
+  padding-top: var(--pd-2);
+  border-top: 0.15rem dashed var(--link-color);
+}
+
+/* 输入框容器 */
+.chat__input {
+  height: 6rem;
+  width: 100%;
+}

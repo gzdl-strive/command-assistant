@@ -1,0 +1,45 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  line-height: 4rem;
+  padding: 0.8rem 1.5rem;
+  margin: 0.8rem 0.4rem;
+  border-radius: 1rem;
+  justify-self: center;
+  background:linear-gradient(180deg,#282828,#202020);
+  box-shadow: inset -8px 0 8px rgba(0,0,0,0.15),
+  inset 0 -8px 8px rgba(0,0,0,0.25),
+  0 0 0 2px rgba(0,0,0,0.75),
+  10px 20px 25px rgba(0,0,0,0.4);
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.wrapper:last-child{
+  width: 6rem;
+}
+.wrapper::before{
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  background: linear-gradient(90deg,#232323,#4a4a4a);
+  border-radius: 1rem;
+  box-shadow: -10px -10px 10px rgba(255,255,255,0.5),
+  10px 5px 10px rgba(0,0,0,0.15);
+  border-left: 1px solid #0004;
+  border-bottom:1px solid #0004;
+  border-top: 1px solid #0009;
+}
+.wrapper .name{
+  position: relative;
+  color:#fff;
+  font-style:normal;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}

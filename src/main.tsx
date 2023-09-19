@@ -1,10 +1,14 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { RouterProvider } from "react-router-dom";
+import "//at.alicdn.com/t/c/font_4090792_bh1491tq8hm.js";
+import routes from "@r/index";
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const root = document.getElementById('root') as HTMLElement;
+
+ReactDOM.createRoot(root).render(
+  <StrictMode>
+    <RouterProvider router={routes} />
+  </StrictMode>,
 );

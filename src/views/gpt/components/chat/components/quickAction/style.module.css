@@ -1,0 +1,73 @@
+.container {
+  background-color: #dce7ff;
+  border-radius: 1.5rem;
+  margin-top: var(--mg-2);
+  padding: var(--pd-2);
+  font-size: var(--fontSize-xxs);
+}
+
+.title {
+  font-weight: 400;
+  font-size: var(--fontSize-sm);
+}
+
+.refresh__container {
+  cursor: pointer;
+}
+
+.refresh__icon,
+.refresh__text {
+  margin-right: var(--mg-0-5);
+  transition: all 0.2s ease-out;
+  user-select: none;
+}
+
+.refresh__container:hover .refresh__icon,
+.refresh__container:hover .refresh__text {
+  color: var(--link-color);
+  transform: scale(1.05);
+}
+
+.panelList {
+  grid-template-columns: var(--gpt-quick-action-columns);
+  padding: var(--pd-1) var(--pd-3);
+}
+
+.panel {
+  position: relative;
+  padding: var(--pd-2);
+  padding-bottom: var(--pd-6);
+  font-size: 1rem;
+  background-color: #f7f7fe;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.panel__title {
+  font-size: var(--fontSize-xxs);
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.panel:hover {
+  background-color: #f2f2ff;
+}
+
+.panel__btn {
+  position: absolute;
+  right: var(--pd-2);
+  bottom: var(--pd-1);
+  padding: var(--pd-0-5) var(--pd-1);
+  width: 6.5rem;
+  background-color: var(--color-lightPurple);
+  border-radius: 1.5rem;
+  color: var(--theme-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.panel:hover .panel__btn {
+  background-color: var(--theme-color);
+  color: var(--color-light);
+}

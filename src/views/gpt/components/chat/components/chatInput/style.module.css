@@ -1,0 +1,51 @@
+.container {
+  height: 100%;
+  padding: 0 var(--pd-1-5);
+  grid-template-columns: 4rem 1fr;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.mic__container {
+  padding: var(--pd-1);
+  text-align: center;
+  background-color: var(--color-light);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.mic {
+  font-size: var(--fontSize-sm);
+  transition: all 0.2s ease-in;
+}
+
+.mic__container:hover .mic {
+  color: var(--theme-color);
+  transform: scale(.9);
+}
+
+.input {
+  padding: 1.2rem;
+  outline: none;
+  border: none;
+  border-radius: 3rem;
+}
+
+.send__container {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.send {
+  font-size: var(--fontSize-md);
+}
+
+.send__container:hover .send {
+  color: var(--theme-color);
+}

@@ -1,0 +1,150 @@
+{
+  "directory": [
+    {
+      "title": "通用能力",
+      "folder": "common",
+      "children": [
+        {
+          "title": "Linux",
+          "name": "linux",
+          "desc": "通用能力——Linux常用命令"
+        },
+        {
+          "title": "Vim",
+          "name": "vim",
+          "desc": "通用能力——Vim快捷操作"
+        },
+        {
+          "title": "FTP",
+          "name": "ftp",
+          "desc": "通用能力——FTP基础知识"
+        },
+        {
+          "title": "Git",
+          "name": "git",
+          "desc": "通用能力——Git常用命令以及Flow流程"
+        },
+        {
+          "title": "Shell",
+          "name": "shell",
+          "desc": "通用能力——Shell脚本"
+        }
+      ]
+    },
+    {
+      "title": "前端基础",
+      "folder": "basic",
+      "children": [
+        {
+          "title": "HTML",
+          "name": "html",
+          "desc": "前端基础——HTML笔记"
+        },
+        {
+          "title": "CSS",
+          "name": "css",
+          "desc": "前端基础——CSS常用以及易忘知识"
+        },
+        {
+          "title": "JS",
+          "name": "js",
+          "desc": "前端基础——JS知识点"
+        }
+      ]
+    },
+    {
+      "title": "现代流行框架",
+      "folder": "popularFramework",
+      "children": [
+        {
+          "title": "jQuery",
+          "name": "jQuery",
+          "desc": "现代流行框架——jQuery常用方法以及源码解析"
+        },
+        {
+          "title": "Vue",
+          "name": "vue",
+          "desc": "现代流行框架——Vue知识"
+        },
+        {
+          "title": "React",
+          "name": "react",
+          "desc": "现代流行框架——React知识点"
+        }
+      ]
+    },
+    {
+      "title": "前端进阶",
+      "folder": "advanced",
+      "children": [
+        {
+          "title": "TypeScript",
+          "name": "ts",
+          "desc": "前端进阶——TypeScript"
+        },
+        {
+          "title": "Debug",
+          "name": "debug",
+          "desc": "Chrome Debug、VSCode debugger调试通关"
+        },
+        {
+          "title": "NodeJS",
+          "name": "node",
+          "desc": "前端进阶——NodeJS"
+        },
+        {
+          "title": "浏览器",
+          "name": "browser",
+          "desc": "前端进阶——浏览器相关知识(调试...)"
+        },
+        {
+          "title": "工程化",
+          "name": "engineer",
+          "desc": "前端进阶——工程化"
+        }
+      ]
+    },
+    {
+      "title": "计算机科学基础",
+      "folder": "computerScience",
+      "children": [
+        {
+          "title": "计算机基础",
+          "name": "basic",
+          "desc": "计算机科学——计算机专业知识基本了解"
+        },
+        {
+          "title": "计算机网络",
+          "name": "network",
+          "desc": "计算机科学——计算机网络"
+        }
+      ]
+    },
+    {
+      "title": "进阶之路",
+      "folder": "highAdvanced",
+      "children": [
+        {
+          "title": "数据结构",
+          "name": "dataStructure",
+          "desc": "前端高手进阶——数据结构"
+        },
+        {
+          "title": "算法",
+          "name": "algorithm",
+          "desc": "前端高手进阶——算法"
+        },
+        {
+          "title": "编译原理",
+          "name": "compiler",
+          "desc": "前端高手进阶——编译原理"
+        },
+        {
+          "title": "操作系统",
+          "name": "operatingSystem",
+          "desc": "前端高手进阶——操作系统"
+        }
+      ]
+    }
+  ]
+}

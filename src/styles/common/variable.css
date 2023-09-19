@@ -1,0 +1,144 @@
+:root {
+  /* Basic Text Color(基本色号定义) */
+  --color-lightBlue: #ebf2fd;
+  --color-blue: #228cf6;
+  --color-deepBlue: #182631;
+  --color-lightGreen: #f0ffe8;
+  --color-green: #67c23a;
+  --color-orange: #f2960d;
+  --color-red: #f52323;
+  --color-lightPurple: #ece8ff;
+  --color-purple: #6a58d8;
+  --color-light: #ffffff;
+  --color-dark: #191627;
+  --color-deepDark: #100e1b;
+  --color-lighterGray: #e5e5e5;
+  --color-lightGray: #cec8c8;
+  --color-gray: #707070;
+  --color-deepGray: #4e4d4d;
+
+  /* basic hover color(基本悬浮色) */
+  --link-color: var(--color-blue);
+
+  /* layout padding(布局padding) */
+  --layout-padding: 0 2rem;
+
+  /* theme color(页面主题色) */
+  --theme-color: var(--color-purple);
+  --theme-lightColor: var(--color-lightPurple);
+
+  /* theme bgColor/text Color */
+  --theme-bgColor: var(--color-light);
+  --theme-textColor: var(--color-dark);
+  --theme-subtitle-textColor: var(--color-gray);
+
+  /* basic font-size lg大屏 md中屏 sm小屏 xs超小型 xxs超超小型 */
+  --fontSize-lg: 3.2rem;
+  --fontSize-md: 2.6rem;
+  --fontSize-sm: 2rem;
+  --fontSize-xs: 1.6rem;
+  --fontSize-xxs: 1.4rem;
+
+  /* basic icon-size */
+  --iconSize-large: 10rem;
+  --iconSize-middle: 4rem;
+  --iconSize-small: 3rem;
+
+  /* basic padding */
+  --mg-0-5: 0.5rem;
+  --mg-1: 1rem;
+  --mg-2: 2rem;
+  --mg-3: 3rem;
+  --mg-4: 4rem;
+  --mg-5: 5rem;
+  --mg-6: 6rem;
+  --mg-7: 7rem;
+  --mg-8: 8rem;
+
+  /* basic margin */
+  --pd-0-5: 0.5rem;
+  --pd-1: 1rem;
+  --pd-1-5: 1.5rem;
+  --pd-2: 2rem;
+  --pd-2-5: 2.5rem;
+  --pd-3: 3rem;
+  --pd-3-5: 3.5rem;
+  --pd-4: 4rem;
+  --pd-5: 5rem;
+  --pd-6: 6rem;
+  --pd-7: 7rem;
+  --pd-8: 8rem;
+  --pd-15: 15rem;
+
+  /* header/nav(头部/导航变量) */
+  --header-height: 18rem;
+  --header-nav-height: 6rem;
+  --header-bgColor: var(--theme-color);
+  --header-textColor: var(--color-light);
+  --header-subtitle-textColor: var(--color-lightGray);
+  --header-boxShadow: 0 0.1rem 0.3rem var(--color-gray);
+  --header-logo-visible: inline-block;
+  --header-nav-title-visible: inline;
+
+  /* content */
+  --content-mode-content: repeat(2, 1fr);
+  --content-common-content: repeat(3, 1fr);
+
+  /* panel */
+  --panel-bgColor: var(--color-dark);
+  --panel-textColor: var(--color-light);
+
+  /* about */
+  --about-size: 30rem;
+  --about-face-boxShadow: inset 0 0 5rem var(--theme-color);
+  --about-title: var(--fontSize-md);
+  --about-front-content: grid;
+  --about-left-unimport-visible: block;
+
+  /* document */
+  --document-description-height: 10rem;
+  --document-sidebar-sticky-top: 10rem;
+  --document-wrapper-areas: "sidebar main";
+  --document-wrapper-columns: minmax(0, 1fr) minmax(0, 2fr);
+  --document-sidebar-display: block;
+  --document-toc-display: none;
+  --document-code-bg: var(--color-deepGray);
+  --sidebar-offset-height: calc(100vh - var(--header-height) - var(--document-description-height));
+
+  /* q&a */
+  --qa-wrapper-areas: "main";
+  --qa-wrapper-columns: 1fr;
+  --qa-sidebar-visible: none;
+  --qa-sidebar-border: linear-gradient(var(--color-purple), var(--color-purple));
+
+  /* gpt */
+  --gpt-container-max-width: 70vw;
+  --gpt-wrapper-areas: "main";
+  --gpt-wrapper-columns: 1fr;
+  --gpt-sidebar-visible: none;
+  --gpt-main-border-radius: 3rem;
+  --gpt-main-padding: 0 var(--pd-3);
+  --gpt-quick-action-columns: repeat(2, 1fr);
+
+  /* footer */
+  --footer-bgColor: var(--color-dark);
+  --footer-textColor: var(--color-light);
+  --footer-content: repeat(2, 1fr);
+  --footer-header-align: left;
+  --footer-recommend-align: flex-start;
+}
+
+body.dark {
+  --theme-bgColor: var(--color-dark);
+  --theme-textColor: var(--color-light);
+
+  /* header */
+  --header-bgColor: var(--color-dark);
+
+  /* panel */
+  --panel-bgColor: var(--color-light);
+  --panel-textColor: var(--color-dark);
+
+  /* footer */
+  --footer-bgColor: var(--color-deepDark);
+}

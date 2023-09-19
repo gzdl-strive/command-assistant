@@ -1,0 +1,23 @@
+.container {
+  max-width: var(--gpt-container-max-width);
+  height: 60rem;
+  margin:  var(--mg-3) auto;
+  padding: var(--pd-1);
+  grid-template-columns: var(--gpt-wrapper-columns);
+  grid-template-areas: var(--gpt-wrapper-areas);
+}
+
+.function {
+  grid-area: aside;
+  display: var(--gpt-sidebar-visible);
+  background-color: var(--color-lightPurple);
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+
+.chat {
+  grid-area: main;
+  height: 100%;
+  background-color: var(--color-lightBlue);
+  border-radius: var(--gpt-main-border-radius);
+}

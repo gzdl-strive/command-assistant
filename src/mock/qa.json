@@ -1,0 +1,104 @@
+{
+  "code": 200,
+  "status": "success",
+  "message": "成功",
+  "data": {
+    "popularList": [
+      {
+        "title": "Linux查看",
+        "count": 10
+      },
+      {
+        "title": "Vim删除整行",
+        "count": 9
+      },
+      {
+        "title": "Linux压缩",
+        "count": 6
+      },
+      {
+        "title": "ftp登录",
+        "count": 5
+      },
+      {
+        "title": "git ssh免密登录",
+        "count": 5
+      },
+      {
+        "title": "html表格",
+        "count": 3
+      },
+      {
+        "title": "css背景",
+        "count": 3
+      },
+      {
+        "title": "js异步",
+        "count": 2
+      },
+      {
+        "title": "js类",
+        "count": 2
+      },
+      {
+        "title": "css溢出",
+        "count": 1
+      },
+      {
+        "title": "vim撤销",
+        "count": 1
+      }
+    ],
+    "chatLog": [
+      {
+        "order": 1,
+        "createTime": "2023-06-27 12:24:02",
+        "type": "ask",
+        "content": "Linux查看"
+      },
+      {
+        "order": 2,
+        "createTime": "2023-06-27 12:25:30",
+        "type": "answer",
+        "content": "ls列出当前目录下的目录或文件, ls -l查看当前目录下的目录或文件的详细信息."
+      }
+    ],
+    "historyList": [
+      {
+        "title": "Linux查看",
+        "success": true,
+        "createTime": "2023-06-28 10:24:05"
+      },
+      {
+        "title": "Shell脚本",
+        "success": false,
+        "createTime": "2023-06-28 11:24:05"
+      },
+      {
+        "title": "jQuery遍历",
+        "success": false,
+        "createTime": "2023-06-28 15:24:05"
+      },
+      {
+        "title": "css盒模型",
+        "success": true,
+        "createTime": "2023-06-19 06:24:05"
+      },
+      {
+        "title": "js数组",
+        "success": true,
+        "createTime": "2023-06-29 10:36:05"
+      },
+      {
+        "title": "react Hook",
+        "success": false,
+        "createTime": "2023-06-29 16:24:05"
+      },
+      {
+        "title": "jQuery源码",
+        "success": false,
+        "createTime": "2023-06-29 22:24:36"
+      }
+    ]
+  }
+}
