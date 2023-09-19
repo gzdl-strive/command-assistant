@@ -5,7 +5,8 @@
   "author": "gzdl-strive",
   "description": "used for quick retrieval commands",
   "type": "module",
-  "homepage": "",
+  "license": "MIT",
+  "homepage": "https://github.com/gzdl-strive/command-assistant",
   "keywords": [
     "commands",
     "retireval",

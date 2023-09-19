@@ -1,4 +1,4 @@
-# COMMAND-ASSISTANT
+# COMMAND-ASSISTANT [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/gzdl-strive/command-assistant/blob/main/LICENSE)
 
 [English](README.md) | 中文
 
@@ -8,7 +8,15 @@
 
 ## 介绍
 - *我的目标*:
+  - 构建一个包含查看笔记、询问问题(与AI对话)的命令助手项目.
 - *原因*:
+  - 日常敲代码，总是容易忘记、记混一些命令、知识点...
+  - 询问问题，主要是想能够创建一个快速问答的也没，而不用遇到问题各种查询资料.
+
+## 特色
+- 通过Vite(no-bundle) + React构建
+- 使用TypeScript来保证类型安全
+- 配置、规范明确，通用Hooks的封装
 
 ## 规范
 - tsx规范
@@ -26,4 +34,7 @@
 ## 作者
 * gzdl-strive
 
-## 图例
+## LICENSE
+[MIT](https://github.com/gzdl-strive/command-assistant/blob/main/LICENSE)
+
+Copyright (c) 2023-present gzdl-strive
