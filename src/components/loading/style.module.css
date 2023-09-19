@@ -1,0 +1,41 @@
+.loading__container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0 0 0 / 80%);
+  z-index: 1000;
+}
+
+.loading__ball {
+  width: 0;
+  border-width: 6rem;
+  border-style: solid;
+  border-top-color: var(--color-orange);
+  border-right-color: var(--color-red);
+  border-bottom-color: var(--color-green);
+  border-left-color: var(--color-blue);
+  mask: radial-gradient(closest-side circle,#000 99%,#0000 100%) left/4rem 4rem no-repeat;
+  -webkit-mask: radial-gradient(closest-side circle,#000 99%,#0000 100%) left/4rem 4rem no-repeat;
+  animation: load 2s infinite;
+}
+
+.loading__text {
+  color: #fff;
+  font-size: var(--fontSize-sm);
+}
+
+@keyframes load {
+  25% {
+    -webkit-mask-position: top; 
+  }
+  50% {
+    -webkit-mask-position: right;
+  }
+  75% {
+    -webkit-mask-position: bottom;
+  }
+}

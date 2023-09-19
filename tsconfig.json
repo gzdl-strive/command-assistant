@@ -18,8 +18,22 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@c/*": ["src/components/*"],
+      "@s/*": ["src/styles/*"],
+      "@u/*": ["src/utils/*"],
+      "@cfg/*": ["src/config/*"],
+      "@l/*": ["src/layout/*"],
+      "@v/*": ["src/views/*"],
+      "@r/*": ["src/router/*"],
+      "@a/*": ["src/assets/*"],
+      "@api/*": ["src/api/*"],
+      "@h/*": ["src/hooks/*"],
+      "@m/*": ["src/mock/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

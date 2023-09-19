@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  z-index: 10;
+  bottom: -10rem;
+  right: 3rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background-color: var(--theme-color);
+  border-radius: 0.5rem;
+  padding: 2rem 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.container:hover {
+  transform: scale(1.05);
+}
+
+.show {
+  bottom: 5rem;
+}
+
+.icon {
+  font-size: var(--fontSize-md);
+  color: var(--color-light);
+}

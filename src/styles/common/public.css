@@ -1,0 +1,81 @@
+/* test(测试样式) */
+.test {
+  background-color: aqua;
+}
+
+/* container(容器) */
+.container {
+  max-width: 86.6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.flex.j_center {
+  justify-content: center;
+}
+
+.flex.j_between {
+  justify-content: space-between;
+}
+
+.flex.a_center {
+  align-items: center;
+}
+
+.flex.a_end {
+  align-items: flex-end;
+}
+
+.grid {
+  display: grid;
+}
+
+.gap-col-1 {
+  column-gap: 1rem;
+}
+
+.gap-col-1-5 {
+  column-gap: 1.5rem;
+}
+
+.gap-col-2 {
+  column-gap: 2rem;
+}
+
+.gap-col-3 {
+  column-gap: 3rem;
+}
+
+.gap-row-0-5 {
+  row-gap: 0.5rem;
+}
+
+.gap-row-1 {
+  row-gap: 1rem;
+}
+
+.gap-row-1-5 {
+  row-gap: 1.5rem;
+}
+
+.gap-row-2 {
+  row-gap: 2rem;
+}
+
+.gap-row-3 {
+  row-gap: 3rem;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+div,
+p,
+h1,
+h2,
+h3,
+ul,
+li,
+dl,
+dt,
+a,
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-dark);
+  transition: 150ms color;
+}
+
+a:hover {
+  color: var(--link-color);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+input {
+  font: normal;
+}
+
+input:focus,
+a:focus {
+  outline: none;
+}
