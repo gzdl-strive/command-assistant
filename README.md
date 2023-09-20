@@ -11,7 +11,7 @@ This Website is bulit using `Vite` + `React` + `TypeScript`, with a simple and b
   - Build a command assistant project that includes reviewing notes and asking questions (talking to AI)
 - *cause*:
   - Typing code in daily life is always easy to forget and memorize some commands and knowledge points
-  - Asking questions is mainly about creating a quick Q&A without encountering various query materials
+  - Asking questions is mainly about creating a quick Q&A Page without encountering various query materials
 
 ## Features
 - Build through Vite(no bundle) + React
