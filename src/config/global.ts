@@ -127,7 +127,7 @@ const globalConfig: GlobalConfig = {
         description: "Web developer, with extensive knowledge and years of experience, working in web technologies, delivering quality work.",
         data: [
           { name: "years of experience", value: "02+" },
-          { name: "completed projected", value: "04" },
+          { name: "completed projected", value: "05" },
           { name: "companies worked", value: "01" }
         ]
       },
@@ -147,7 +147,7 @@ const globalConfig: GlobalConfig = {
           {
             title: "Web Development",
             subtitle: "practice and work",
-            time: "2020.7-now"
+            time: "2020.7-2023.8"
           }
         ]
       },
@@ -155,9 +155,9 @@ const globalConfig: GlobalConfig = {
         name: "my project",
         data: [
           {
-            title: "cmd-assit",
-            address: "http://baidu.com",
-            icon: "/vite.svg"
+            title: "gd-ui-vite",
+            address: "https://gzdl-strive.github.io/gzdl-admin/",
+            icon: "https://vitepress.dev/vitepress-logo-mini.svg"
           },
           {
             title: "gzdl-profile",
@@ -178,7 +178,7 @@ const globalConfig: GlobalConfig = {
       },
       plan: {
         target: "重新构建前端知识体系",
-        curTarget: "无障碍了解、Shell脚本"
+        curTarget: "UI组件库项目完善以及各开源项目规范化"
       }
     }
   },
