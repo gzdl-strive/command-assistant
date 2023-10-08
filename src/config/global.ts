@@ -114,12 +114,12 @@ const globalConfig: GlobalConfig = {
       //   type: "Doc",
       //   icon: "react"
       // },
-      // {
-      //   title: "Vue",
-      //   describe: "Vue笔记",
-      //   type: "Doc",
-      //   icon: "vue"
-      // },
+      {
+        title: "Vue",
+        describe: "Vue笔记",
+        type: "Doc",
+        icon: "vue"
+      },
     ],
     about: {
       introduction: {
