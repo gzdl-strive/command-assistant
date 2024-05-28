@@ -126,9 +126,9 @@ const globalConfig: GlobalConfig = {
         name: packageConfig.author,
         description: "Web developer, with extensive knowledge and years of experience, working in web technologies, delivering quality work.",
         data: [
-          { name: "years of experience", value: "02+" },
-          { name: "completed projected", value: "05" },
-          { name: "companies worked", value: "01" }
+          { name: "years of experience", value: "03+" },
+          { name: "completed projected", value: "06+" },
+          { name: "companies worked", value: "02" }
         ]
       },
       experience: {
@@ -137,17 +137,17 @@ const globalConfig: GlobalConfig = {
           {
             title: "Computer Engineer",
             subtitle: "JiLin University of Finance and Economics",
-            time: "2017.9-2021.6"
+            time: "2017.09-2021.06"
           },
           {
-            title: "Web Design",
-            subtitle: "self-study",
-            time: "2020.3-2020.7"
+            title: "Web Development in AsiaInfo",
+            subtitle: "self-study & practice & work",
+            time: "2020.03-2023.08"
           },
           {
-            title: "Web Development",
-            subtitle: "practice and work",
-            time: "2020.7-2023.8"
+            title: "Business Web Development in COME TO FUTURE TECH",
+            subtitle: "work",
+            time: "2023.08-2024.05"
           }
         ]
       },
@@ -161,18 +161,18 @@ const globalConfig: GlobalConfig = {
           },
           {
             title: "gzdl-profile",
-            address: "http://124.222.103.60:8890",
+            address: "http://47.102.210.13/",
             icon: "/vite.svg"
           },
           {
             title: "vitv-admin",
-            address: "http://124.222.103.60",
-            icon: "http://124.222.103.60:8892/images/vitv-admin.svg"
+            address: "http://47.102.210.13:8080/",
+            icon: "http://47.102.210.13:8090/icons/vitv-admin.svg"
           },
           {
-            title: "single-room",
-            address: "http://124.222.103.60:8888",
-            icon: "http://124.222.103.60:8892/images/my-single-room.svg"
+            title: "my-single-room",
+            address: "http://47.102.210.13:8088",
+            icon: "http://47.102.210.13:8090/icons/my-single-room.svg"
           }
         ]
       },
